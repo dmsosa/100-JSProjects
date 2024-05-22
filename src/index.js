@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Welcome from './routes/Welcome';
 import One from './routes/One';
 import Two from './routes/Two';
+import Three from './routes/Three';
 import GodProvider from './context/GodContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +20,7 @@ root.render(
               <Route path="" element={<Welcome/>}></Route>
               <Route path="/one" element={<One/>}></Route>
               <Route path="/two" element={<Two/>}></Route>
+              <Route path="/three" element={<Three/>}></Route>
             </Route>
           </Routes>
       </BrowserRouter>
