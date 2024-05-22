@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './assets/css/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Welcome from './routes/Welcome';
+import One from './routes/One';
+import Two from './routes/Two';
+import GodProvider from './context/GodContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <GodProvider>
+      <BrowserRouter>
+        <Routes>
+            <Route element={<App/>}>
+              <Route path="" element={<Welcome/>}></Route>
+              <Route path="/one" element={<One/>}></Route>
+              <Route path="/two" element={<Two/>}></Route>
+            </Route>
+          </Routes>
+      </BrowserRouter>
+    </GodProvider>
   </React.StrictMode>
 );
 
