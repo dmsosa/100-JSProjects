@@ -1,0 +1,230 @@
+.quiz-wrapper {
+    max-width: 50rem;
+    position: relative;
+    margin: 0 auto;
+}
+
+.quiz-container {
+    -ms-overflow-style: none; 
+    scrollbar-width: 0;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1rem 1.5rem 0.75rem hsla(0, 0%, 0%, 0.5);
+}
+
+.question-card-container {
+    margin: 0 auto;
+    padding: 0;
+    min-width: 40rem;
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+}
+
+.error-message {
+    padding: 0.2rem 1rem;
+    margin: 0;
+    width: 100%;
+    background-color: rgb(230, 52, 52);
+}
+.error-message p {
+    margin-top: 0.5rem;
+    color: white;
+    font-weight: 700;
+}
+.question-card-header {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background-color: lightseagreen;
+    color: white;
+    padding: 2rem;
+}
+.question-card-header h1 {
+    font-size: xx-large;
+    margin-bottom: 1rem;
+}
+.question-card-header p {
+    font-size: 1.5rem;
+}
+
+.question-card-container .btn {
+    margin: 0;
+    width: 100%;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    border-radius: 0;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    transition: background-color 0.03s 0s ease-in, outline 0.15s 0s ease-in;
+}
+.question-card-container .btn:hover {
+    outline: rgb(8, 91, 87) solid 0.25rem;
+    background-color: rgba(7, 186, 177, 0.589);
+    font-weight: 500;
+}
+.question-card-container .btn:active {
+    outline: lightgreen solid 0.4rem;
+    background-color: lightgreen;
+    font-weight: 500;
+}
+
+
+.options {
+    margin: 0 auto;
+    padding: 0;
+}
+.option-container {
+    border-radius: 0.5rem;
+    background-color: whitesmoke;
+    display: flex;
+    padding: 1rem;
+    margin: 0.25rem 0;
+    justify-content: space-between;
+    color: #222;
+    transition: all 0.1s 0s, transform 0.2s 0s ease-in;
+}
+.option-container.unselected {
+    border-radius: 0.5rem;
+    background-color: rgb(163, 190, 157);
+    display: flex;
+    padding: 1rem;
+    margin: 0.25rem 0;
+    justify-content: space-between;
+    color: white;
+    font-weight: 500;
+}
+.option-container.correct {
+    border-radius: 0.5rem;
+    background-color: rgb(77, 223, 89);
+    display: flex;
+    padding: 1rem;
+    margin: 0.25rem 0;
+    justify-content: space-between;
+    color: white;
+    font-weight: 500;
+}
+.option-container.wrong {
+    border-radius: 0.5rem;
+    background-color: rgb(244, 82, 82);
+    display: flex;
+    padding: 1rem;
+    margin: 0.25rem 0;
+    justify-content: space-between;
+    color: lightgray;
+}
+.option-container:hover {
+    transform: translateY(-5px);
+    background-color: lightgray;
+    outline: lightblue solid 0.25rem;
+    color: #333;
+    font-weight: 500;
+}
+.option-container p {
+    margin-left: 2rem;
+    line-height: 1.5;
+}
+
+.option-container > .letter {
+    max-height: 2rem;
+    background-color: rgb(224, 231, 239);
+    border-radius: 30%;
+    outline: rgb(255, 239, 157) solid 0.2rem;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0;
+}
+.option-container > .letter a {
+    margin: 0;
+    padding: 0;
+}
+.option-container > .custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.custom-checkbox {
+    position: relative;
+    margin-right: 1rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0; 
+    bottom: 0;
+    right: 0;
+    left: 0;
+    outline: lightblue solid 0.3rem;
+    transition: background-color 0.07s 0s ease-in;
+}
+.checkmark:after {
+    content: "";
+    display: none;
+    position: absolute;
+    left: 0.7rem;
+    top: 0.25rem;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0rem 0.3rem 0.3rem 0rem;
+    transform: rotate(45deg);
+}
+.custom-checkbox:hover .checkmark {
+    background-color: rgb(208, 241, 252);
+}
+.custom-checkbox:active .checkmark {
+    background-color: rgb(31, 196, 251);
+}
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: rgb(31, 196, 251);
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.advise {
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+.advise.show {
+    height: fit-content;
+    background-color: aliceblue;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    transition: all 0.4s;
+}
+.advise p {
+    display: none;
+    margin: 0 auto;
+    font-style: italic;
+    font-size: small;
+    max-width: 70%;
+}
+.advise.show p {
+    display: block;
+}
+
+.progress {
+    position: relative;
+    width: 90%;
+    margin: 0.5rem auto;
+}
+.progress p { 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.bar {
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+
+
