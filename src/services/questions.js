@@ -1,4 +1,5 @@
-function Question(answered, text, options, correctOptions, advise) {
+function Question(id, answered, text, options, correctOptions, advise) {
+    this.id = id;
     this.answered = answered;
     this.text = text;
     this.options = options;
@@ -7,6 +8,7 @@ function Question(answered, text, options, correctOptions, advise) {
 };
 
 const q1 = new Question(
+    1,
     false,
     "Do you know how loved you are?", 
     ["Yes", "I think so...", "I'm conscious that I have no idea", "I would like to know it"],
@@ -14,6 +16,7 @@ const q1 = new Question(
     "If you want to have an idea of how loved you are... read the Bible, spend time with Jesus"
 );
 const q2 = new Question(
+    2,
     false,
     "Do you know 2?", 
     ["Yes", "I think so...", "I'm conscious that I have no idea", "I would like to know it"],
@@ -21,6 +24,7 @@ const q2 = new Question(
     "If you want to have an idea of how loved you are... read the Bible, spend time with Jesus"
 );
 const q3 = new Question(
+    3,
     false,
     "Do you know how 3?", 
     ["Yes", "I think so...", "I'm conscious that I have no idea", "I would like to know it"],
@@ -28,6 +32,7 @@ const q3 = new Question(
     "If you want to have an idea of how loved you are... read the Bible, spend time with Jesus"
 );
 const q4 = new Question(
+    4,
     false,
     "Do you know  4?", 
     ["Yes", "I think so...", "I'm conscious that I have no idea", "I would like to know it"],

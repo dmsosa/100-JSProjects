@@ -1,4 +1,4 @@
-function Options({ options, handleSelectOption, selectedOptions }) {
+function Options({ options, selectedOptions, handleSelectOption }) {
 
     const indexToLetter = (index) => {
         switch (index) {
@@ -19,20 +19,16 @@ function Options({ options, handleSelectOption, selectedOptions }) {
 
         }
     }
-
-    const checkIfSelected = (index) => {
-        return selectedOptions.includes(index);
-    }
     return (
         options.map((option, optionIndex) => 
             <div 
-            className={`option-container`} 
+            className={`option-container noanswer option${optionIndex}`}
             key={optionIndex} 
             onClick={() => handleSelectOption(optionIndex)}>
                 <div className="letter"><a>{indexToLetter(optionIndex)}</a></div>
                 <p>{option}</p>
                 <div className="custom-checkbox">
-                    <input type="checkbox" checked={checkIfSelected(optionIndex)}></input>
+                    <input type="checkbox" checked={selectedOptions.includes(optionIndex)} readOnly></input>
                     <span className="checkmark"></span>
                 </div>
             </div>

@@ -20,7 +20,7 @@ function Navbar() {
             <div className="navbar-brand">
                 <h5>With God</h5>
                 <label className="squitch">
-                    <input type="checkbox" checked={withGod} onClick={handleGod}/>
+                    <input type="checkbox" checked={withGod} onClick={handleGod} readOnly/>
                     <span className="checkSlide"></span>
                 </label>
             </div>

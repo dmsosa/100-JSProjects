@@ -1,74 +1,82 @@
-import { useState } from "react";
-import AnsweredOptions from "./AnsweredOptions";
+import { useEffect, useState } from "react";
 import Options from "./Options";
+import Timer from "./Timer";
 
-function QuestionCard({ question, index, sumToScore, pointsPerQuestion, setQuestions }) {
+function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuestions, setQuestions }) {
 
+    const [ currentOption, setCurrentOption ] = useState(null);
     const [ selectedOptions, setSelectedOptions ] = useState([]);
     const [ errorMessage, setErrorMessage ] = useState("");
-
-    const handleSelectOption = (index) => {
-        if (selectedOptions.includes(index)) {
-            setSelectedOptions(selectedOptions.filter((optionIndex) => optionIndex !== index));
-        }
-        if (selectedOptions.length > 4) {
-            return;
-        }
-        if (selectedOptions.length > 0 && question.correctOptions.length === 1) {
-            setSelectedOptions([index]);
-        } else if (!selectedOptions.includes(index)) {
-            setSelectedOptions((prev) => [...prev, index])
-        }
-
+    
+    const handleSelectOption = (optionIndex) => {
+        setCurrentOption(optionIndex);
     }
 
-    const handleAnswer = () => {
-        if (selectedOptions.length < 1) {
-            setErrorMessage("Please, choose at least one (1) option");
+    const setQuestionAsAnswered = () => {
+        setQuestions( allQuestions.map((q) => {
+            if (q.id === question.id) {
+                q.answered = true;
+            }
+            return q;
+        })) 
+    }
+
+    useEffect(() => {
+
+        if (question.answered) {
             return;
-        } else {
-            setErrorMessage("");
         }
-        if (question.correctOptions.length === 1) {
-            if (question.correctOptions.includes(selectedOptions[0])) {
+        if (currentOption == null || selectedOptions.includes(currentOption)) { return };
+
+        selectedOptions.push(currentOption);
+        setSelectedOptions(selectedOptions);
+        const isCorrect = checkCorrect(currentOption);
+
+        if (isCorrect) {
+            if (question.correctOptions.length === 1) {
                 sumToScore(pointsPerQuestion);
+            } else {
+                sumToScore(pointsPerQuestion/question.correctOptions.length);
             }
         } else {
-            let totalPoints = 0;
-            console.log(selectedOptions, question.correctOptions, pointsPerQuestion/question.correctOptions.length, pointsPerQuestion)
-            
-            for (let i = 0; i < selectedOptions; i++) {
-                if (question.correctOptions.includes(selectedOptions[i])) {
-                    totalPoints += pointsPerQuestion/question.correctOptions.length;
-                }
-            }
-            console.log(totalPoints, "totalPoints")
-            sumToScore(totalPoints);
+            setErrorMessage("ups!");
+            setQuestionAsAnswered();
         }
-        question.answered = true;
-        setQuestions((prev) => [...prev, question]);
+
+        if (question.correctOptions.length === selectedOptions.length) {
+            setQuestionAsAnswered();
+        };
+    }, [currentOption])
+
+    const checkCorrect = (selectedOption) => {
+        const option = document.querySelector(`#question${question.id}  .option${selectedOption}`);
+        if (question.correctOptions.includes(selectedOption)) {
+            option.classList.add("correct");
+            option.classList.remove("noanswer");
+            return true;
+        } else {
+            option.classList.add("wrong");
+            option.classList.remove("noanswer");
+            return false;
+        }
     }
 
     return (
-        <div className="question-card-container">
-            <div className="question-card-header">
-                <h1>Question no. {index+1}</h1>
-                <p>{question.text}</p>
-            </div>
-            <div className={`advise ${question.answered && "show"}`}><p>{question.advise}</p></div>
-            { errorMessage.length > 1 && <div className="error-message"><p>{errorMessage}</p></div> }
-            <div className="options">
-                {question.answered ? 
-                <AnsweredOptions 
-                correctOptions={question.correctOptions} 
-                selectedOptions={selectedOptions}
-                options={question.options}/>
-                :
-                <Options options={question.options} handleSelectOption={handleSelectOption} selectedOptions={selectedOptions}/>
-            }
-            </div>
-            <button className="btn btn-primary" onClick={handleAnswer}>Send answer</button>
-        </div>
+            <div id={`question${question.id}`} className={`question-card-container ${question.answered ? "answered":"noanswer"}`}>
+                <div className="question-card-header">
+                    <h1>Question no. {index+1}</h1>
+                    <p>{question.text}</p>
+                    <Timer />
+                </div>
+                <div className={`advise ${question.answered && "show"}`}><p>{question.advise}</p></div>
+                { errorMessage.length > 1 && <div className="error-message"><p>{errorMessage}</p></div> }
+                <div className="options">
+                    <Options options={question.options} 
+                    selectedOptions={selectedOptions}
+                    handleSelectOption={handleSelectOption} 
+                    />
+                </div>
+            </div>        
     )
 };
 
