@@ -1,13 +1,14 @@
-function Score({ firstTime, score, setShowScore, handleTryAgain }) {
+function Score({ firstTime, score, handleTryAgain }) {
     return (
         <div className="score-div">
             { firstTime ? 
             <>
-                <button onClick={() => handleTryAgain()}>New game</button>
+                <h1>{"Let's go!"}<em>{"(o 'Los gehts', en aleman!)"}</em></h1>
+                <button className="newgame" onClick={() => handleTryAgain()}>New game</button>
             </> :
             <>
-                <h1>Your final score is {score}</h1>
-                <button onClick={() => handleTryAgain()}>Play Again</button>
+                <h1>Final score: <span>{Math.round(score)}</span></h1>
+                <button className="tryagain" onClick={() => handleTryAgain()}>Play Again</button>
             </>
             }
         </div>

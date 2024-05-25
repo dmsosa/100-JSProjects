@@ -7,10 +7,9 @@ function Three() {
     
 
     return (
-        <>
-            <h1>Quick quiz</h1>
+        <div className="container">
             <Quiz />
-        </>
+        </div>
     )
 }
 

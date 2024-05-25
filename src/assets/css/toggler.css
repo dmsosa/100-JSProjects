@@ -27,6 +27,7 @@
 }
 .toggler-content {
   position: absolute;
+  overflow-y: scroll;
   top: 0;
   right: 0;
   left: 0;
@@ -52,6 +53,7 @@
   color:rgba(90, 2, 47, 0.8);
   display: block;
   margin: 0 auto;
-  margin-top: 2rem;
-  margin-left: 7rem;
+  text-align: center;
+  padding-right: 7em;
+  padding-top: 1rem;
 }

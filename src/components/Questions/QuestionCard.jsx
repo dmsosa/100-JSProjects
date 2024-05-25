@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Options from "./Options";
 import Timer from "./Timer";
+import QuestionButtons from "./QuestionButtons";
 
 function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuestions, setQuestions }) {
 
@@ -8,7 +9,7 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
     const [ selectedOptions, setSelectedOptions ] = useState([]);
     const [ errorMessage, setErrorMessage ] = useState("");
     
-    const handleSelectOption = (optionIndex) => {
+    const handleCurrentOption = (optionIndex) => {
         setCurrentOption(optionIndex);
     }
 
@@ -21,11 +22,34 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
         })) 
     }
 
+    const handleWatchedQuestion = (nextQuestionId) => {
+        setQuestions( allQuestions.map((q) => {
+            if (q.id === nextQuestionId) {
+                q.watched = true;
+            }
+            return q;
+        })) 
+    }
+    const checkCorrect = (selectedOption) => {
+        const option = document.querySelector(`#question${question.id}  .option${selectedOption}`);
+        if (question.correctOptions.includes(selectedOption)) {
+            option.classList.add("correct");
+            option.classList.remove("noanswer");
+            return true;
+        } else {
+            option.classList.add("wrong");
+            option.classList.remove("noanswer");
+            return false;
+        }
+    }
+
     useEffect(() => {
+
 
         if (question.answered) {
             return;
         }
+
         if (currentOption == null || selectedOptions.includes(currentOption)) { return };
 
         selectedOptions.push(currentOption);
@@ -48,34 +72,26 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
         };
     }, [currentOption])
 
-    const checkCorrect = (selectedOption) => {
-        const option = document.querySelector(`#question${question.id}  .option${selectedOption}`);
-        if (question.correctOptions.includes(selectedOption)) {
-            option.classList.add("correct");
-            option.classList.remove("noanswer");
-            return true;
-        } else {
-            option.classList.add("wrong");
-            option.classList.remove("noanswer");
-            return false;
-        }
-    }
 
     return (
             <div id={`question${question.id}`} className={`question-card-container ${question.answered ? "answered":"noanswer"}`}>
                 <div className="question-card-header">
                     <h1>Question no. {index+1}</h1>
                     <p>{question.text}</p>
-                    <Timer />
+                    {question.watched && !question.answered && <Timer callback={setQuestionAsAnswered}/>}
                 </div>
                 <div className={`advise ${question.answered && "show"}`}><p>{question.advise}</p></div>
                 { errorMessage.length > 1 && <div className="error-message"><p>{errorMessage}</p></div> }
                 <div className="options">
                     <Options options={question.options} 
                     selectedOptions={selectedOptions}
-                    handleSelectOption={handleSelectOption} 
+                    handleSelectOption={handleCurrentOption} 
                     />
                 </div>
+                <QuestionButtons 
+                questionsSize={allQuestions.length} 
+                questionId={question.id}
+                handleWatchedQuestion={handleWatchedQuestion}/>
             </div>        
     )
 };

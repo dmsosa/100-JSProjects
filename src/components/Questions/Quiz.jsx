@@ -52,11 +52,10 @@ function Quiz() {
                 score={finalScore} 
                 setShowScore={setShowScore} 
                 handleTryAgain={handleTryAgain} /> 
-                <ProgressBar finalScore={finalScore}/>
             </>
             :
             <>
-                { errorMessage && <div className="error-message"><p>{errorMessage}</p></div>}
+                { errorMessage && <div className="main-error-message"><p>{errorMessage}</p></div>}
                 <ProgressBar finalScore={finalScore}/>
                 <div className="quiz-wrapper">
                     <div className="quiz-container">
@@ -73,11 +72,11 @@ function Quiz() {
                     </div>
                     <div className="quiz-nav">
                         {questions.map((question) => 
-                            <a key={question.id} href={`#question${question.id}`}></a>
+                            <div></div>
                         )}
                     </div>
                     <div className="quiz-finish">
-                        <button className="btn btn-primary" onClick={handleFinish}>Finish</button>
+                        <button onClick={handleFinish}>Finish</button>
                     </div>
                 </div>
 
