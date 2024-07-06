@@ -3,14 +3,14 @@ import Quiz, { getAllQuestions } from "../components/Questions/Quiz";
 
 
 
-function Three() {
+function QuizPage() {
     
 
     return (
-        <div className="container">
+        <div className="page">
             <Quiz />
         </div>
     )
 }
 
-export default Three; 
+export default QuizPage; 

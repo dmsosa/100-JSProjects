@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchWeather } from "../services/weather";
 import WeatherComponent from "../components/Weather/WeatherComponent";
 
-function Two() {
+function MeditationPage() {
     const [ lat, setLat ] = useState([]);
     const [ lon, setLon ] = useState([]);
     const [ weatherData, setWeatherData ] = useState({});
@@ -30,7 +30,16 @@ function Two() {
     
     }, [lat, lon]);
 
-    return (typeof weatherData != 'undefined' ? <WeatherComponent weatherData={weatherData} /> : <div>No weather</div>)
+    return ( 
+        <div className="page">
+            <h2>Das Wetter</h2>
+            { 
+            typeof weatherData != 'undefined' ? 
+            <WeatherComponent weatherData={weatherData} /> : 
+            <div>No weather</div>
+            }
+        </div>
+)
 }
 
-export default Two;
+export default MeditationPage;

@@ -1,4 +1,5 @@
 @import url(./navbar.css);
+@import url(./animations.css);
 @import url(./quiz.css);
 html {
   font-size: 16px;
@@ -10,8 +11,41 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: whitesmoke;
+  background-color: rgb(249, 233, 233);
 }
+.nonscroll {
+  overflow: hidden;
+}
+
+.page {
+  background-color: lightcoral;
+  height: 100%;
+  width: 100%;
+}
+
+.sticky-section {
+  height: 200vh;
+}
+.sticky {
+  height: 100vh;
+  position: sticky;
+  top: 0%;
+  overflow: hidden;
+}
+
+
+.hor-scroll {
+  display: flex;
+  width: 200vh;
+  height: 100vh;
+  padding: 0 5vw;
+  will-change: transform;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
 .curtain {
   display: flex;
   justify-content: center;
@@ -102,9 +136,7 @@ body {
   background-color: orange;
 }
 
-.nonscroll {
-  overflow: hidden;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

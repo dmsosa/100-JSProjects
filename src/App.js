@@ -1,6 +1,8 @@
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import { Outlet } from 'react-router-dom';
+import { useEffect } from "react";
+import DankePage from "./pages/DankePage";
+import FlowerPage from "./pages/FlowerPage";
+import MeditationPage from "./pages/MeditationPage";
+import QuizPage from "./pages/QuizPage";
 
 function App() {
   const showUp = () => {
@@ -8,26 +10,44 @@ function App() {
     document.querySelector("div.curtain").classList.add("remove");
     document.querySelector("div.curtain .giftbox").classList.add("remove");
   }
+  const scrollX = (stickySection) => {
+    const offsetTop = stickySection.offsetTop;
+    const horizontalScroll = stickySection.querySelector(".hor-scroll");
+    let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
+    percentage = percentage < 0 ? 0 : percentage > 100 ? 100 : percentage;
+    console.log(percentage);
+    horizontalScroll.style.transform = `translateX(-${percentage}vw)`;
+  }
+  useEffect(() => {
+    const stickySections = document.querySelectorAll(".sticky-section");
+    window.addEventListener("scroll", () => {
+      for (let i = 0; i < stickySections.length ; i++) {
+        scrollX(stickySections[i]);
+      }
+    })
+  }, [])
   return (
-    <>
-      <div className='curtain'>
-        <div className='gift-container'>
-          <div className='gift-lid'></div>
-          <button onClick={() => showUp()}>
-            <div className='giftbox'></div>
-          </button>
+    <main>
+      <div className="sticky-section">
+        <div className="sticky">
+            <div className="hor-scroll">
+              <FlowerPage />
+              <MeditationPage />
+            </div>
         </div>
       </div>
-      <div className='header'>
-        <Navbar/>
+      <section>
+        <QuizPage />
+      </section>
+      <div className="sticky-section">
+        <div className="sticky">
+          <div className="hor-scroll">
+            <DankePage />
+          </div>
+        </div>
       </div>
-      <div className='main'>
-        <Outlet/>
-      </div>
-      <div className='footer'>
-        <Footer/>
-      </div>
-    </>
+      <section></section>
+    </main>
   );
 }
       
