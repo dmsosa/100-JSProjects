@@ -1,0 +1,73 @@
+.flower-container {
+    position: relative;
+    width: 500px;
+    height: 380px;
+    border: solid 2px black;
+}
+.flower {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+.flower__blatter {
+    position: relative;
+}
+.blute {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 100%;
+    transform: rotateX(70deg);
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 30%;
+        background-color: #c0a001;
+    }
+}
+
+.blatt {
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(#c0a001, #f0e854);
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 20%;
+    &--1 {
+        transform: rotateX(-40deg) rotateY(0deg) rotateZ(45deg);
+    
+    }
+    &--2 {
+        transform: rotateX(-40deg) rotateY(60deg);
+        left: 0;
+        right: auto;
+    }
+    &--3 {
+        transform: rotateX(-40deg) rotateY(120deg);
+        right: 0;
+        left: auto;
+    }
+    &--4 {
+        transform: rotateX(70deg) rotateY(0deg);
+        top: 10px;
+    }
+}
+.flower__stengel {
+    position: relative;
+    margin: 0 auto;
+    width: 4px;
+    height: 150px;
+    background-color: green;
+
+}
