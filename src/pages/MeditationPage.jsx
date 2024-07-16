@@ -32,12 +32,16 @@ function MeditationPage() {
 
     return ( 
         <div className="page">
-            <h2>Das Wetter</h2>
-            { 
-            typeof weatherData != 'undefined' ? 
-            <WeatherComponent weatherData={weatherData} /> : 
-            <div>No weather</div>
-            }
+            <div className="wetter-wrapper">
+                { 
+                typeof weatherData != 'undefined' ? 
+                <WeatherComponent weatherData={weatherData} /> : 
+                <div className="kein-wetter">
+                    <h1>No weather</h1>
+                    <p>404</p>
+                </div>
+                }
+            </div>
         </div>
 )
 }

@@ -1,0 +1,118 @@
+.wetter-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    height: 110px;
+    width: 200px;
+    background-color: #554da0;
+    box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
+    padding: 10px; 
+}
+.wetter-card {
+    position: relative;
+    .title {
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        width: fit-content;
+        height: fit-content;
+    }
+    .country {
+        position: absolute;
+        top: 0;
+        right: 2px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        padding: 0 2px;
+        color: white;
+        width: fit-content;
+        height: fit-content;
+        background-color: #1bcaa1;
+    }
+    .day {
+        font-size: 8px;
+        color: white;
+        margin-top: 29px;
+        border-top: #1bcaa1 solid 2px;
+        padding-left: 2px;
+        padding-top: 3px;
+        max-width: 80%;
+    }
+    .row:last-child {
+        display: flex;
+        flex-direction: row;
+    }
+}
+.wetter-description {
+    font-size: 12px;
+    font-weight: bold;
+    width: fit-content;
+    padding-top: 1px;
+}
+.wetter-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+.wetter-temperatur {
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+}
+.wetter-min, .wetter-max {
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 5px;
+    color: white;
+    box-shadow: inset -2px -2px 0 0 #1118;
+    margin-bottom: 2px;
+}
+.wetter-min {
+    background-color: #65c9f0;
+}
+.wetter-max {
+    background-color: #ff3131;
+}
+
+
+
+.kein-wetter {
+    color: white;
+    text-align: center;
+    p {
+    }
+    h1 {
+        font-weight: bold;
+    }
+}
+
+.bg-clear {
+    background-image: url("../img/wetter/Clear.png");
+    background-size: cover;
+}
+.bg-clouds {
+    background-image: url("../img/wetter/Clouds.png");
+    background-size: cover;
+}
+.bg-drizzle {
+    background-image: url("../img/wetter/Drizzle.png");
+    background-size: cover;
+}
+.bg-rain {
+    background-image: url("../img/wetter/Rain.png");
+    background-size: cover;
+}
+.bg-thunderstorm {
+    background-image: url("../img/wetter/Thunderstorm.png");
+    background-size: cover;
+}
+.bg-snow {
+    background-image: url("../img/wetter/Snow.png");
+    background-size: cover;
+}
