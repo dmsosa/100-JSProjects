@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchWeather } from "../services/weather";
 import WeatherComponent from "../components/Weather/WeatherComponent";
+import Toaster from "../components/Toaster";
 
 function MeditationPage() {
     const [ lat, setLat ] = useState([]);
@@ -31,7 +32,7 @@ function MeditationPage() {
     }, [lat, lon]);
 
     return ( 
-        <div className="page">
+        <div className="page container">
             <div className="wetter-wrapper">
                 { 
                 typeof weatherData != 'undefined' ? 
@@ -41,6 +42,9 @@ function MeditationPage() {
                     <p>404</p>
                 </div>
                 }
+            </div>
+            <div className="row">
+                <Toaster />
             </div>
         </div>
 )
