@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    background: linear-gradient(45deg, #18f08b 25%, #111 25%) repeat-y;
+    background-size: 100% 5%;
+    
+}
+.container {
+    position: absolute;
+    height: 350px;
+    width: 450px;
+    background-color: rgb(27, 27, 27);
+    border-radius: 25px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.row {
+    display: flex;
+    max-height: 80px;
+    height: 33%;
+    justify-content: space-between;
+    margin: 0;
+}
+.row:first-child {
+    margin-top: 10px;
+}
+.col {
+    margin: 0 auto;
+}
+label {
+    display: block;
+    font-weight: bold;
+    color: white;
+    font-family: sans-serif;
+    text-align: left;
+}
+input[type="date"] {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 0.5px;
+    border: none;
+    outline: none;
+}
+::-webkit-calendar-picker-indicator {
+    background-color: #18f08b;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    cursor: pointer;
+    max-height: 50px;
+    padding: 0 20px;
+    font-size: 16px;
+    background-color: #18f08b;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.2s;
+    color: #333;
+    margin: 0 auto;
+}
+button:hover {
+    color: white;
+    background-color: #65a285;
+}
+.result {
+    position: absolute;
+    bottom: 0;
+    background-color: #444;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    max-height: 33%;
+    height: 33%;
+    width: 100%;
+    border-radius: 25px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+
+}
+em {
+    font-weight: bold;
+    font-size: 20px;
+    color: #18f08b;
+}
+.errorMessage {
+    height: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 1s;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: darkred;
+    padding: 8px 12px;
+    text-align: center;
+    margin: 15px 0;
+}
+.show {
+    height: fit-content;
+    max-height: fit-content;
+    opacity: 1;
+}
+@keyframes shake {
+    10%, 90% {
+        transform: rotate(2deg);
+    }
+    20%, 80% {
+        transform: rotate(-2deg);
+    }
+    30%, 50%, 70% {
+        transform: rotate(4deg);
+    }
+    40%, 60% {
+        transform: rotate(-4deg);
+    }
+}
+.shake {
+    animation: shake 1s linear 1;
+}

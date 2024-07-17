@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagerechner</title>
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label for="first-date">Initial date</label>
+                <input type="date" id="init-date"/>
+            </div>
+            <div class="col">
+                <label for="second-date">Final date</label>
+                <input type="date" id="final-date"/>
+            </div>
+        </div>
+        <div class="errorMessage"></div>
+        <div class="row">
+            <button id="submit">Submit</button>
+        </div>
+        <div class="row">
+            <div class="result">Du kannst dieses App nutzen, um die Differenz zwischen zwei Daten zu rechnen!</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
