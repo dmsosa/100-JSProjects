@@ -6,7 +6,8 @@ function Toaster() {
                 <div className="slot"></div>
                 <div className="foot"></div>
             </div>
-            <div className="toast"></div>
+            <div className="bimbo"></div>
+            <div className="bimbo"></div>
         </div>
     )
 }

@@ -1,9 +1,15 @@
+* {
+    --toaster-width: 65px;
+    --toaster-height: 40px;
+    --toast-width: 25px;
+    --toast-height: 25px;
+}
 .wetter-wrapper {
     position: absolute;
     top: 20px;
     left: 40px;
     height: 65px;
-    width: 240px;
+    width: fit-content;
     background-color: #554da0;
     box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
     padding: 10px; 
@@ -13,20 +19,20 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 15px;
     .wetter-title {
         display: flex;
-        width: 100px;
+        width: fit-content;
         height: 26px;
         gap: 10px;
+        flex-grow: 1;
     }
     .title {
         font-size: 20px;
         font-weight: bold;
         color: white;
-        width: fit-content;
-        height: fit-content;
         margin: 0;
+        
     }
     .country {
         font-size: 15px;
@@ -39,6 +45,9 @@
         background-color: #1bcaa1;
     }
     .day {
+        position: absolute;
+        bottom: 0;
+        left: 0;
         font-size: 8px;
         color: white;
         padding-left: 1px;
@@ -114,17 +123,16 @@
 
 .toaster-wrapper {
     position: relative;
-    height: 400px;
-    width: 300px;
-    background-image: radial-gradient(circle at top right, transparent 40px, red 41px);
-    background-size: 50px 50px;
-    background-repeat: no-repeat;
-    
-    background-position: 100% 10px;
+    margin-top: 50px;
+    height: 200px;
+    width: 200px;
+    background-color: #ffb031;
+    transform: scale(0.5);
 }
 .toaster {
+    z-index: 3;
     position: absolute;
-    top: 50%;
+    bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 130px;
@@ -132,7 +140,7 @@
     background-color: #65c9f0;
     border-radius: 25px 25px 0 0;
     box-shadow: inset -30px 0px 0 #1113;
-    outline: white 0.5px solid;
+    outline: white 1px solid;
 }
 .toaster::before {
     content: "";
@@ -140,8 +148,8 @@
     top: 40%;
     left: 40%;
     transform: translate(-50%, -50%);
-    width: 7px;
-    height: 7px;
+    width: 5%;
+    height: 8%;
     background-color: #333;
     border-radius: 50%;
     box-shadow: 0 15px 0 #333, 0 30px 0 2px #3482a0, 0 30px 0 4px #fff;
@@ -152,7 +160,7 @@
     top: 100%;
     left: -4px;
     width: calc(100% + 6px);
-    height: 6px;
+    height: 5%;
     border-radius: 10px;
     background-color: #333;
     box-shadow: inset -30px 0px 0 #111;
@@ -161,8 +169,8 @@
     position: absolute;
     top: 10px;
     left: 5px;
-    width: 20px;
-    height: 20px;
+    width: 15%;
+    height: 20%;
     background-color: #fff9;
     border-radius: 50% 22% 57% 50% / 50% 31% 60% 43%;
 }
@@ -185,6 +193,14 @@
     background-color: #111;
     box-shadow: inset -2px -2px 0 #444;
 }
+@keyframes slot {
+    50% {
+        transform: translateY(15px);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+}
 .slot::after {
     content: "";
     position: absolute;
@@ -195,4 +211,85 @@
     border-radius: 5px;
     background-color: #444;
     box-shadow: inset -4px 0px 0 #111, -10px 0 0 -2px white, -10px 0 0 -2px white;
+    animation: slot 2s infinite;
 }
+.bimbo {
+    z-index: 2;
+    position: absolute;
+    bottom: 53%;
+    left: 37%;
+    width: 50px;
+    height: 50px;
+    background-color: wheat;
+    border-radius: 0 0 10px 10px;
+    border: solid burlywood 5px;
+    border-width: 0px 4px 4px 4px;
+    animation: toast-front 2s infinite;
+}
+.bimbo:last-child {
+    bottom: 49%;
+    left: 45%;
+    z-index: 1;
+    animation: toast-back 2s infinite;
+}
+@keyframes toast-back {
+    50% {
+        transform: translateY(15px);
+    }
+    80% {
+        transform: translateY(-20px);
+    }
+}
+@keyframes toast-front {
+    50% {
+        transform: translateY(10px);
+    }
+    80% {
+        transform: translateY(-27px);
+    }
+}
+.bimbo::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 20px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 25px 25px 50px 50px / 25px 25px 50px 50px;    
+    background-color: wheat;
+    border: solid burlywood 4px;
+    border-width: 4px 4px 0px 4px;
+}
+.bimbo::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    top: 50%;
+    left: 20%;
+    border-radius: 100%;
+    background-color: rgb(75, 58, 37, 0.7);
+    box-shadow: 
+    10px -8px 0 0 rgb(75, 58, 37, 0.7), 
+    20px 10px 0 0 rgb(75, 58, 37, 0.7), 
+    30px -15px 0 0 rgb(75, 58, 37, 0.7);
+    z-index: 5;
+}
+
+
+.buchstabe::before {
+    content: "";
+    position: absolute;
+    height: 70px;
+    width: 70px;
+
+}
+.buchstabe::after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 85px;
+
+}
+

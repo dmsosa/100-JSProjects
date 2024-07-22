@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 
 function Plant() {
 
@@ -16,17 +17,80 @@ function Plant() {
                     <div className="blume__stengel__blatt blume__stengel__blatt--1"></div>
                 </div>
             </div>
+            <div className="zweigen-wrapper">
+            <div className="wachsen-ans wachsen-ans__1">
+                    <div className="zweigen zweigen__1 ">
+                        <div className="zweigen__top"></div>
+                        <div className="zweigen__bottom"></div>
+                    </div>
+                </div>
+                <div className="wachsen-ans wachsen-ans__2" style={{animationDelay: "0.4s"}}>
+                    <div className="zweigen zweigen__2 ">
+                        <div className="zweigen__top"></div>
+                        <div className="zweigen__bottom"></div>
+                    </div>
+                </div>
+                <div className="wachsen-ans wachsen-ans__3">
+                    <div className="zweigen zweigen__3 ">
+                        <div className="zweigen__top"></div>
+                        <div className="zweigen__bottom"></div>
+                    </div>
+                </div>
+                <div className="wachsen-ans wachsen-ans__4">
+                    <div className="zweigen zweigen__4 ">
+                        <div className="zweigen__top"></div>
+                        <div className="zweigen__bottom"></div>
+                    </div>
+                </div>
+            </div>
+            <div className="zweigen__blatter zweigen__blatter--1">
+            <div className="zweigen__blatter__top"></div>
+            <div className="zweigen__blatter__bottom"></div>
+            <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+            </div>
+            <div className="zweigen__blatter zweigen__blatter--2">
+            <div className="zweigen__blatter__top"></div>
+            <div className="zweigen__blatter__bottom"></div>
+            <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+            </div>
+            <div className="zweigen__blatter zweigen__blatter--3">
+            <div className="zweigen__blatter__top"></div>
+            <div className="zweigen__blatter__bottom"></div>
+            <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
+                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+            </div>
+
             <div className="lange_spriess lange_spriess--1">
                 <div className="wachsen-ans" style={{animationDelay: "4s"}}>
                     <div className="spriess spriess--0"></div>
                 </div>
-                <div className="wachsen-ans" style={{animationDelay: "4.4s"}}>
+                <div className="wachsen-ans" style={{animationDelay: "1.4s"}}>
                     <div className="spriess spriess--1"></div>
                 </div>
-                <div className="wachsen-ans" style={{animationDelay: "4.1s"}}>
+                <div className="wachsen-ans" style={{animationDelay: "2.1s"}}>
                     <div className="spriess spriess--2"></div>
                 </div>
-                <div className="wachsen-ans" style={{animationDelay: "4.7s"}}>
+                <div className="wachsen-ans" style={{animationDelay: "3.7s"}}>
                     <div className="spriess spriess--3"></div>
                 </div>
             </div>
@@ -44,7 +108,76 @@ function Plant() {
                     <div className="spriess spriess--3"></div>
                 </div>
             </div>
-            
+            <div className="lange_spriess lange_spriess--3">
+                <div className="wachsen-ans" style={{animationDelay: "0.3s"}}>
+                    <div className="spriess spriess--0"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "0.4s"}}>
+                    <div className="spriess spriess--1"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "2.4s"}}>
+                    <div className="spriess spriess--2"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "1.5s"}}>
+                    <div className="spriess spriess--3"></div>
+                </div>
+            </div>
+            <div className="lange_spriess lange_spriess--4">
+                <div className="wachsen-ans" style={{animationDelay: "1.4s"}}>
+                    <div className="spriess spriess--0"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "4.7s"}}>
+                    <div className="spriess spriess--1"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "3.1s"}}>
+                    <div className="spriess spriess--2"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "1.2s"}}>
+                    <div className="spriess spriess--3"></div>
+                </div>
+            </div>
+            <div className="lange_spriess lange_spriess--5">
+                <div className="wachsen-ans" style={{animationDelay: "1.2s"}}>
+                    <div className="spriess spriess--0"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "2.7s"}}>
+                    <div className="spriess spriess--1"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "4.1s"}}>
+                    <div className="spriess spriess--2"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "2.2s"}}>
+                    <div className="spriess spriess--3"></div>
+                </div>
+            </div>
+            <div className="lange_spriess lange_spriess--6">
+                <div className="wachsen-ans" style={{animationDelay: "0.4s"}}>
+                    <div className="spriess spriess--0"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "2.7s"}}>
+                    <div className="spriess spriess--1"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "1.1s"}}>
+                    <div className="spriess spriess--2"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "3.2s"}}>
+                    <div className="spriess spriess--3"></div>
+                </div>
+            </div>
+            <div className="lange_spriess lange_spriess--7">
+                <div className="wachsen-ans" style={{animationDelay: "3.4s"}}>
+                    <div className="spriess spriess--0"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "1.7s"}}>
+                    <div className="spriess spriess--1"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "0.1s"}}>
+                    <div className="spriess spriess--2"></div>
+                </div>
+                <div className="wachsen-ans" style={{animationDelay: "2.2s"}}>
+                    <div className="spriess spriess--3"></div>
+                </div>
+            </div>
         </div>
     )
 
