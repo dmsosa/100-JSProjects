@@ -1,3 +1,6 @@
+Dieses projekt war durch [Coding Artist]([https://www.youtube.com/watch?v=miBGBLVNjWE](https://www.youtube.com/@CodingArtist)) inspiriert. Ich glaube dass, es ist immer cool, bei Anderen inspiriert zu sein.
+
+
 # Ende result:
 
 Mit JavaScript getan
