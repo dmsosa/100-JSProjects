@@ -135,11 +135,8 @@
 }
 // Zweigen  ----------------------------------------------
 .zweigen-wrapper {
-  display: flex;
   height: 100%;
   width: 100%;
-  justify-content: center;
-  align-items: end;
   .wachsen-ans {
     position: absolute;
     &__1 {
@@ -236,6 +233,25 @@
 }
 
 // Zweigen-Blatter  ----------------------------------------------
+.zweigen__blatter-wrapper {
+  height: 100%;
+  width: 100%;
+  .wachsen-ans {
+    position: absolute;
+    &--1 {
+      left: 20%;
+      bottom: 5%;
+    }
+    &--2 {
+      right: 30%;
+      bottom: 15%;
+    }
+    &--3 {
+      left: 40%;
+      bottom: 0%;
+    }
+  }
+}
 .zweigen__blatter {
   --c: #159faa;
   --line-w: 15px;
@@ -243,49 +259,363 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
+  transform: bottom center;
   &--1 {
-
+    left: 20%;
+    bottom: 5%;
+    transform: rotate(10deg) ;
+    animation: beweg-blatter--1 5s linear infinite;
   }
 
   &--2 {
-    left: 20%;
-    bottom: 10%;
-  
+    right: 30%;
+    bottom: 15%;
+    transform: rotate(-10deg) rotateY(180deg);
+    animation: beweg-blatter--2 5s linear infinite;
+
   }
 
-
+  
   &--3 {
+    left: 40%;
+    bottom: 0%;
+    transform: rotate(-15deg);
+    animation: beweg-blatter--3 5s 1.2s linear infinite;
 
   }
 
   &__top {
-    
+    height: 45px;
+    width: 35px;
+    border-radius: 0% 50% 0% 0%;
+    border-right: 5px solid rgba(95, 204, 51, 0.8);
+    transform: translate(0px, 5px);
+  }
+  &__bottom {
+    height: 60px;
+    width: 5px;
+    background: linear-gradient(to right, #ccc9 10%, transparent 30% 60%, #3333 80%), linear-gradient(to top, transparent 20%, rgba(95, 204, 51, 0.8) 40%);
+    clip-path: polygon(0% 3%, 100% 0%, 100% 100%, 0% 100%);
   }
 
 
   &__blatt {
-    --size: 10px;
+    --size: 12px;
     position: absolute;
+    top: 100%;
     width: calc(var(--size) * 2.1);
     height: var(--size);
-    background: linear-gradient(to top,  transparent 20%, #159faa);
+    background: linear-gradient(to top,  transparent 10%, rgba(54, 137, 22, 0.8));
     border-radius: 50% 50% 0% 0% / 50% 50% 0% 0%;
 
     $speed: 2s;
 
     &--1 {
+      top: 20px;
+      left: 33px;
+      transform: rotate(-8deg);
+      animation: wachsen-blatter--1 $speed 1.2s linear backwards;
 
-      top: 5%;
-      left: 30%;
-      transform: rotate(20deg);
-
-      @keyframes growing-grass-ans--1 {
+      @keyframes wachsen-blatter--1 {
         0% {
           transform-origin: bottom left;
           transform: rotate(-20deg) scale(0);
         }
       }
+    }
+    &--2 {
+      top: 20px;
+      left: 6px;
+      transform: rotate(8deg);
+      animation: wachsen-blatter--2 $speed 1.2s linear backwards;
+
+      @keyframes wachsen-blatter--2 {
+        0% {
+          transform-origin: bottom right;
+          transform: rotate(20deg) scale(0);
+        }
+      }
+    }
+    &--3 {
+      top: 32px;
+      left: 35px;
+      transform: rotate(-8deg) scale(1.3);
+      animation: wachsen-blatter--3 $speed 1.2s linear backwards;
+
+      @keyframes wachsen-blatter--3 {
+        0% {
+          transform-origin: bottom left;
+          transform: rotate(-20deg) scale(0);
+        }
+      }
+    }
+    &--4 {
+      top: 32px;
+      left: 2px;
+      transform: rotate(8deg) scale(1.3);
+      animation: wachsen-blatter--4 $speed 1.2s linear backwards;
+
+      @keyframes wachsen-blatter--4 {
+        0% {
+          transform-origin: bottom right;
+          transform: rotate(20deg) scale(0);
+        }
+      }
+    }
+    &--5 {
+      top: 48px;
+      left: 40px;
+      transform: rotate(-8deg) scale(1.6);
+      animation: wachsen-blatter--5 $speed 1.2s linear backwards;
+
+      @keyframes wachsen-blatter--5 {
+        0% {
+          transform-origin: bottom left;
+          transform: rotate(-20deg) scale(0);
+        }
+      }
+    }
+    &--6 {
+      top: 48px;
+      left: -2px;
+      transform: rotate(8deg) scale(1.6);
+      animation: wachsen-blatter--6 $speed 1.2s linear backwards;
+
+      @keyframes wachsen-blatter--6 {
+        0% {
+          transform-origin: bottom right;
+          transform: rotate(20deg) scale(0);
+        }
+      }
+    }
+    &--7 {
+      top: 65px;
+      left: 45px;
+      transform: rotate(-8deg) scale(1.9);
+      animation: wachsen-blatter--7 $speed 1.2s linear backwards;
+
+      @keyframes wachsen-blatter--7 {
+        0% {
+          transform-origin: bottom left;
+          transform: rotate(-20deg) scale(0);
+        }
+      }
+    }
+    &--8 {
+      top: 65px;
+      left: -5px;
+      transform: rotate(8deg) scale(1.9);
+      animation: wachsen-blatter--8 $speed 1.2s linear backwards;
+      @keyframes wachsen-blatter--8 {
+        0% {
+          transform-origin: bottom right;
+          transform: rotate(20deg) scale(0);
+        }
+      }
+    }
+
+  }
+}
+
+
+.zweig {
+  --size: 2px;
+  --c: #15aa67;
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  transform: rotate(-30deg);
+  animation: beweg-zweig 5s linear infinite;
+  z-index: -1;
+  &__line {
+    width: var(--size);
+    height:65px;
+    background: linear-gradient(
+      to top,
+      transparent,
+      #079097 95%,
+      transparent 100%
+    );
+    animation: wachsen-ans 1s 3s ease-in backwards;
+  }
+  &__blatt__wrapper {
+    position: absolute;
+    top: 0; left: 0;
+    transform: rotate(5deg);
+    transform-origin: bottom left;
+    &:nth-child(even) {
+      left: 1px;
+    }
+    &:nth-child(odd) {
+      left: -1px;
+    }
+    &--1 {
+      top: -12px;
+      transform: scale(0.7);
+      animation:zweig__blatt-ans 1s 6.5s ease-in backwards ;
+    }
+    &--2 {
+      top: -12px ;
+      transform: rotateY(180deg) rotate(5deg) scale(0.7) ;
+      animation: zweig__blatt-left-ans 1s 6.2s ease-in backwards;
+    }
+    &--3 {
+      top: -3px;
+      transform: scale(0.9);
+      animation: zweig__blatt-ans 1s 5.8s ease-in backwards;
+    }
+    &--4 {
+      top: -3px;
+      transform: rotateY(180deg) rotate(5deg) scale(0.9) ;
+      animation: zweig__blatt-left-ans 1s 5.5s ease-in backwards;
+    }
+    &--5 {
+      top: 10px;
+      animation: zweig__blatt-ans 1s 5.2s ease-in backwards;
+    }
+    &--6 {
+      top: 10px;
+      transform: rotateY(180deg) rotate(5deg) ;
+      animation: zweig__blatt-left-ans 1s 4.8s ease-in backwards;
+    }
+    &--7 {
+      top: 20px;
+      transform: scale(1.2) rotate(10deg);
+      animation: zweig__blatt-ans 1s 4.5s ease-in backwards;
+    }
+    &--8 {
+      top: 20px;
+      transform: rotateY(180deg) rotate(10deg) scale(1.2) ;
+      animation: zweig__blatt-left-ans-2 1s 4.2s ease-in backwards;
+    }
+    @keyframes zweig__blatt-ans {
+      0% {
+        transform: scale(0.1);
+      }      
+    }
+    @keyframes zweig__blatt-left-ans {
+      0% {
+        transform: rotateY(180deg) scale(0.1);
+      }
+    }
+    @keyframes zweig__blatt-left-ans-2 {
+      0% {
+        transform: rotateY(180deg) scale(0.1) rotate(10deg);
+      }
+  
+    }
+
+  }
+  &__blatt {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px 0 0 0px / 20px 0px 0 0;
+    box-shadow: inset 0 2px 1vmin hsla(184, 97%, 58%, 0.2);
+    background: linear-gradient(
+      to bottom left,
+      transparent,
+      var(--c)
+    ),
+    linear-gradient(
+      to bottom right,
+      var(--c) 50%,
+      transparent 50%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom right,
+      #159faa 50%,
+      transparent 50%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to bottom right,
+      red 50%,
+      transparent 50%
+    );
+
+  }
+}
+
+.zweig-2-wrapper {
+  height: 80px;
+  width: 30px;
+  position: absolute;
+  left: 60%;
+  bottom: 10px;
+  transform-origin: bottom left;
+}
+.zweig-2 {
+  transform: rotate(10deg);
+  animation: beweg-zweig-2 5s ease-in infinite;
+  &__stock {
+    width: 30px;
+    height: 80px;
+    border-left: solid #15aa67 2px;
+    border-radius: 50% 0% 0% 0%;
+    -webkit-mask-image: linear-gradient(to top, 
+    transparent 20%, #15aa67 50%);
+  }
+  &__blatt {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    border-radius: 0 30px 20% 0 / 0 15px 0px 0;
+    background: linear-gradient(to top right, transparent 50%,  #15aa67 50%);
+    box-shadow: inset 0px 0px 10px rgba(135, 223, 115, 0.7);
+    -webkit-mask-image: linear-gradient(
+      to top right, transparent 50%,  #15aa67 50%);
+    transform-origin: top right;
+    &:nth-child(even) {
+      transform: rotateY(180deg) rotate(-30deg);
+      // animation: zweig-2__blatt-ans-2 1.5s ease-in 4.2s backwards;
+    }
+    &:nth-child(odd) {
+      transform: rotate(-10deg);
+      // animation: zweig-2__blatt-ans 1.5s ease-in 4.2s backwards;
+    }
+    @keyframes zweig-2__blatt-ans {
+      0% {
+        transform: scale(0.09);
+      }
+    }
+    @keyframes zweig-2__blatt-ans-2 {
+      0% {
+        transform: rotateY(180deg) rotate(-30deg) scale(0.09);
+      }
+    }
+    &--1 {
+      left: 3px;
+      top: 6px;
+    }
+    &--2 {
+      top: 0px;
+      left: -30px;
+    }
+    &--3 {
+      top: 20px;
+    }
+    &--4 {
+      top: 15px;
+      left: -32px;
+    }
+    &--5 {
+      top: 34px;
+      left: 0px;
+    }
+    &--6 {
+      top: 30px;
+      left: -32px;
+    }
+    &--7 {
+      top: 50px;
+      left: 0px;
+    }
+    &--8 {
+      top: 45px;
+      left: -32px;
     }
   }
 }
@@ -425,6 +755,49 @@
   }
   50% {
     transform: scale(0.6, 0.8) rotateY(180deg) rotate(-10deg);
+  }
+}
+
+@keyframes beweg-blatter--1 {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes beweg-blatter--2 {
+  0%, 100% {
+    transform: rotate(10deg) rotateY(180deg) scale(0.9);
+  }
+  50% {
+    transform: rotate(0deg) rotateY(180deg);
+  }
+}
+
+@keyframes beweg-blatter--3 {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+}
+
+@keyframes beweg-zweig {
+  0%, 100% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+}
+@keyframes beweg-zweig-2 {
+  0%, 100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(17deg) scale(0.9);
   }
 }
 

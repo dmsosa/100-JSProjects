@@ -43,42 +43,93 @@ function Plant() {
                     </div>
                 </div>
             </div>
-            <div className="zweigen__blatter zweigen__blatter--1">
-            <div className="zweigen__blatter__top"></div>
-            <div className="zweigen__blatter__bottom"></div>
-            <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+            <div className="zweigen__blatter-wrapper">
+                <div className="wachsen-ans wachsen-ans--1">
+                    <div className="zweigen__blatter zweigen__blatter--1">
+                        <div className="zweigen__blatter__top"></div>
+                        <div className="zweigen__blatter__bottom"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+                    </div>
+                </div>
+                <div className="wachsen-ans wachsen-ans--2">
+                <div className="zweigen__blatter zweigen__blatter--2">
+                    <div className="zweigen__blatter__top"></div>
+                    <div className="zweigen__blatter__bottom"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
+                    <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+                </div>
+                </div>
+                <div className="wachsen-ans wachsen-ans--3">
+                    <div className="zweigen__blatter zweigen__blatter--3">
+                        <div className="zweigen__blatter__top"></div>
+                        <div className="zweigen__blatter__bottom"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
+                        <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+                    </div>
+                </div>
             </div>
-            <div className="zweigen__blatter zweigen__blatter--2">
-            <div className="zweigen__blatter__top"></div>
-            <div className="zweigen__blatter__bottom"></div>
-            <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+            <div className="zweig">
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--1">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--2">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--3">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--4">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--5">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--6">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--7">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__blatt__wrapper zweig__blatt__wrapper--8">
+                    <div className="zweig__blatt"></div>
+                </div>
+                <div className="zweig__line"></div>
             </div>
-            <div className="zweigen__blatter zweigen__blatter--3">
-            <div className="zweigen__blatter__top"></div>
-            <div className="zweigen__blatter__bottom"></div>
-            <div className="zweigen__blatter__blatt zweigen__blatter__blatt--1"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--2"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--3"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--4"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--5"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--6"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--7"></div>
-                <div className="zweigen__blatter__blatt zweigen__blatter__blatt--8"></div>
+            <div className="zweig-2-wrapper wachsen-ans">
+                <div className="zweig-2">
+                    <div className="zweig-2__blatt zweig-2__blatt--1"></div>
+                    <div className="zweig-2__blatt zweig-2__blatt--2"></div>
+                    <div className="zweig-2__blatt zweig-2__blatt--3"></div>
+                    <div className="zweig-2__blatt zweig-2__blatt--4"></div>
+                    <div className="zweig-2__blatt zweig-2__blatt--5"></div>
+                    <div className="zweig-2__blatt zweig-2__blatt--6"></div>
+                    <div className="zweig-2__blatt zweig-2__blatt--7"></div>
+                    <div className="zweig-2__blatt zweig-2__blatt--8"></div>
+                    <div className="zweig-2__stock"></div>
+                </div>
             </div>
+
+
+            
 
             <div className="lange_spriess lange_spriess--1">
                 <div className="wachsen-ans" style={{animationDelay: "4s"}}>
