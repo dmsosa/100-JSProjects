@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Plant from "../components/Plant";
 import { useGod } from "../context/GodContext";
+import GodToggler from "../components/GodToggler";
 
 function FlowerPage() {
     const { withGod } = useGod();
@@ -10,7 +11,7 @@ function FlowerPage() {
     }, [])
     return (
         <div className="page flower-page">
-            <div className="god-toggler">God toggler</div>
+            <GodToggler />
             <div className="container">
                 <div className="row">
                     <div className="col col-12">

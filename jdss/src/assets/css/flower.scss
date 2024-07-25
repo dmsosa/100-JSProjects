@@ -12,6 +12,7 @@
 .flower-container {
     position: relative;
     margin: 0 auto;
+    padding: 0;
     width: 500px;
     height: 65vh;
     border: solid 2px black;
@@ -89,6 +90,7 @@
         linear-gradient(to top, transparent 0%, rgba(135, 223, 115, 1) 50% 60%, rgba(35, 150, 9, 1));
         box-shadow: inset 3px 0px 2px #0002;
         animation: wachsen-ans 1s 1s backwards;
+        transform-origin: bottom center;
         &__blatt {
           position: absolute;
           width: 25px;
@@ -819,6 +821,7 @@
   radial-gradient(circle at top, #054226 20%, #002816);
   mask-image: linear-gradient(to top, transparent 75%, #15aa67 70%);
   box-shadow: 10px 0px 8px green;
+  transition: all 3s;
   &--1 {
     bottom: -49%;
     left: 0; right: 0;
@@ -838,7 +841,14 @@
     width: 200px; 
     opacity: 0.8;
   }
+
 }
+.berge.dry {
+    background-color: burlywood; 
+    background-image: none;
+}
+
+
 // Animationen  ----------------------------------------------
 
 @keyframes spriess-1 {
