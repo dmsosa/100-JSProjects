@@ -3,7 +3,9 @@ import { useEffect } from "react";
 function Plant() {
 
     return  (
+        <>
         <div className="flower-container">
+            <div className="day-hintergrund"></div>
             <div className="blume blume--1">
                 <div className="blume__blatter">
                     <div className="blume__blatt blume__blatt--1"></div>
@@ -15,6 +17,45 @@ function Plant() {
                 </div>
                 <div className="blume__stengel">
                     <div className="blume__stengel__blatt blume__stengel__blatt--1"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--2"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--3"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--4"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--5"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--6"></div>
+                </div>
+            </div>
+            <div className="blume blume--2">
+                <div className="blume__blatter">
+                    <div className="blume__blatt blume__blatt--1"></div>
+                    <div className="blume__blatt blume__blatt--2"></div>
+                    <div className="blume__blatt blume__blatt--3"></div>
+                    <div className="blume__blatt blume__blatt--4"></div>
+                    <div className="weiss-kreis"></div>
+                    {/* licht */}
+                </div>
+                <div className="blume__stengel">
+                    <div className="blume__stengel__blatt blume__stengel__blatt--1"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--2"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--3"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--4"></div>
+                </div>
+            </div>
+            <div className="blume blume--3">
+                <div className="blume__blatter">
+                    <div className="blume__blatt blume__blatt--1"></div>
+                    <div className="blume__blatt blume__blatt--2"></div>
+                    <div className="blume__blatt blume__blatt--3"></div>
+                    <div className="blume__blatt blume__blatt--4"></div>
+                    <div className="weiss-kreis"></div>
+                    {/* licht */}
+                </div>
+                <div className="blume__stengel">
+                    <div className="blume__stengel__blatt blume__stengel__blatt--1"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--2"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--3"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--4"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--5"></div>
+                    <div className="blume__stengel__blatt blume__stengel__blatt--6"></div>
                 </div>
             </div>
             <div className="zweigen-wrapper">
@@ -129,8 +170,6 @@ function Plant() {
             </div>
 
 
-            
-
             <div className="lange_spriess lange_spriess--1">
                 <div className="wachsen-ans" style={{animationDelay: "4s"}}>
                     <div className="spriess spriess--0"></div>
@@ -229,7 +268,12 @@ function Plant() {
                     <div className="spriess spriess--3"></div>
                 </div>
             </div>
+            <div className="berge berge--1"></div>
+            <div className="berge berge--2"></div>
+            <div className="berge berge--3"></div>
         </div>
+        </>
+        
     )
 
     

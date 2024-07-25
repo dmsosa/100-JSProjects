@@ -15,43 +15,151 @@
     width: 500px;
     height: 65vh;
     border: solid 2px black;
+    overflow: hidden;
 }
 
+// Hintergrund  ----------------------------------------------
+.day-hintergrund {
+  position: absolute;
+  --bg-c: rgba(222, 241, 248, 0.961);
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  filter: blur(1px);
+  box-shadow: inset -20px 30px 100px 0px rgb(255, 235, 18, 0.7);
+  background:
+  radial-gradient(circle at top right, rgba(253, 241, 11, 0.5) 75px,  transparent 225px), 
+  radial-gradient(ellipse at top, transparent 50%, var(--bg-c)),
+  radial-gradient(
+    ellipse at bottom,
+    var(--bg-c),
+    rgba(0, 127, 159, 0.105)
+  ),
+  repeating-linear-gradient(220deg, var(--bg-c) 0px, var(--bg-c) 17px, transparent 19px, transparent 22px),
+  repeating-linear-gradient(189deg, var(--bg-c) 0px, var(--bg-c) 17px, transparent 19px, transparent 22px),
+  repeating-linear-gradient(90deg, var(--bg-c) 0px, var(--bg-c) 17px, transparent 19px, transparent 22px),
+
+  linear-gradient(90deg, rgb(235, 129, 0), rgb(240, 240, 240));
+  z-index: -100;
+}
 // Blume ----------------------------------------------
 .blume {
     z-index: 9999;
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
     left: 50%;
     transform: translate(-50%);
+    &--1 {
+      animation: beweg-blume--1 5s linear infinite;
+    }
+    &--2 {
+      z-index: 2;
+      left: 45%;
+      transform: rotate(-20deg);
+      animation: beweg-blume--2 5s ease-in-out infinite;
+      .blume__blatt {
+        --c-primary: #2babfa;
+        --c-secondary: #0967d2;
+      }
+      .blume__stengel {
+        height: 150px;
 
+      }
+    }
+    &--3 {
+      z-index: 1;
+      left: 55%;
+      transform: rotate(20deg);
+      animation: beweg-blume--3 5s ease-in-out infinite;
+      .blume__blatt {
+        --c-primary: #fae92b;
+        --c-secondary: #d25d09;
+      }
+      .blume__stengel {
+        height: 120px;
+      }
+    }
     &__stengel {
         position: relative;
         margin: 0 auto;
         width: 5.5px;
-        height: 150px;
+        height: 180px;
         background: 
         linear-gradient(to left, #0002, transparent, #fff2), 
-        linear-gradient(to top, transparent 0%, rgba(135, 223, 115, 1) 10% 60%, rgba(35, 150, 9, 1));
+        linear-gradient(to top, transparent 0%, rgba(135, 223, 115, 1) 50% 60%, rgba(35, 150, 9, 1));
         box-shadow: inset 3px 0px 2px #0002;
+        animation: wachsen-ans 1s 1s backwards;
+        &__blatt {
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          opacity: 0.93;
+          transform-origin: bottom left;
+          background: 
+          linear-gradient(to top right, #fff2 20%, transparent 40%),
+          linear-gradient(-35deg, transparent 49%, #2221 50%, #2221 52%, transparent 53%) 0px 2px/15px 25px no-repeat,
+          radial-gradient(circle at bottom left, rgba(35, 150, 9, 1), rgba(135,223,115,1));
+          border-radius: 50px 5px 50px 5px / 25px 5px 50px 5px;
+          box-shadow: inset 0px 0px 5px rgba(35, 150, 9, 1), 0px 0px 5px #2221;
+          &--1 {
+            top: 0;
+            left: 0px ;
+            transform: scale(0.8) rotateY(180deg);
+            animation: stengel__blatt--2 1s 3s 1 backwards;
+          }
+          &--2 {
+            top: 5px;
+            left: 4px;
+            transform: scale(0.8);
+            animation: stengel__blatt 1s 2.8s 1 backwards;
+          }
+          &--3 {
+            top: 30px;
+            left: 0px ;
+            transform: scale(1) rotateY(180deg);
+            animation: stengel__blatt--2 1s 2.5s 1 backwards;
+          }
+          &--4 {
+            top: 35px;
+            left: 4.5px;
+            transform: scale(1);
+            animation: stengel__blatt 1s 2s 1 backwards;
+          }
+          &--5 {
+            top: 70px;
+            left: 0px ;
+            transform: scale(1.2) rotateY(180deg);
+            animation: stengel__blatt--2 1s 1.5s 1 backwards;
+          }
+          &--6 {
+            top: 75px;
+            left: 4px;
+            transform: scale(1.2);
+            animation: stengel__blatt 1s 1s 1 backwards;
+          }
+
+
+        }
     }
 
     &__blatter {
         position: relative;
-        
+        animation: wachsen-ans 1s 3s backwards;
     }
     &__blatt {
+        --c-primary: #fa4d2b;
+        --c-secondary: #c91d06;
         z-index: 1;
         position: absolute;
         bottom: 0;
         left: 50%;
         height: 45px;
         width: 40px;
-        background: linear-gradient(to top, #c91d06, #fa4d2b);
+        background: linear-gradient(to top, var(--c-secondary), var(--c-primary));
         border-radius: 51% 49% 47% 53% / 44% 45% 55% 69%;
         transform-origin: bottom center;
-        opacity: 0.9;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+        opacity: 0.95;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 10px #2222;
         &--1 {
             transform: translate(-20%, -6%) rotateY(-45deg) rotateX(45deg);
         }
@@ -699,6 +807,38 @@
   }
 }
 
+.berge {
+  z-index: -10;
+  position: absolute;
+  transform-origin: bottom center;
+  width: 250px;
+  height: 250px;
+  border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+  background: 
+  linear-gradient(to top, #fff3 55%,  #2223 75%),
+  radial-gradient(circle at top, #054226 20%, #002816);
+  mask-image: linear-gradient(to top, transparent 75%, #15aa67 70%);
+  box-shadow: 10px 0px 8px green;
+  &--1 {
+    bottom: -49%;
+    left: 0; right: 0;
+    margin: auto;
+  }
+  &--2 {
+    bottom: -39%;
+    left: -30px;
+    height: 178px;
+    width: 200px; 
+    opacity: 0.7;
+  }
+  &--3 {
+    bottom: -39%;
+    right: -30px;
+    height: 178px;
+    width: 200px; 
+    opacity: 0.8;
+  }
+}
 // Animationen  ----------------------------------------------
 
 @keyframes spriess-1 {
@@ -801,3 +941,44 @@
   }
 }
 
+@keyframes stengel__blatt {
+  0% {
+    transform: scale(0.2);
+  }
+}
+
+@keyframes stengel__blatt--2 {
+  0% {
+    transform: scale(0.2) rotateY(180deg);
+  }
+}
+
+
+@keyframes beweg-blume--1 {
+
+  0%, 50%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  35% {
+    transform: rotate(-5deg) scale(0.98);
+  }
+  70% {
+    transform: rotate(5deg) scale(0.98);
+  }
+}
+@keyframes beweg-blume--2 {
+  0%, 100% {
+    transform: rotate(-20deg) scale(1);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+}
+@keyframes beweg-blume--3 {
+  0%, 100% {
+    transform: rotate(20deg) scale(1);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+}
