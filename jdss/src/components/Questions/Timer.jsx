@@ -12,7 +12,6 @@ function Timer({ callback }) {
     const [ width, setwidth ] = useState('100%');
 
     useEffect(() => {
-        console.log(backgroundColor, width)
 
         const interval = setInterval(() => {
             if (timer > 0) { setTimer(timer-1) };

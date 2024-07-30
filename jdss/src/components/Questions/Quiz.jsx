@@ -56,8 +56,8 @@ function Quiz() {
             :
             <>
                 { errorMessage && <div className="main-error-message"><p>{errorMessage}</p></div>}
-                <ProgressBar finalScore={finalScore}/>
                 <div className="quiz-wrapper">
+                    <ProgressBar finalScore={finalScore}/>
                     <div className="quiz-container">
                         {questions.map((question, index) => 
                             <QuestionCard 
@@ -71,9 +71,10 @@ function Quiz() {
                         )}
                     </div>
                     <div className="quiz-nav">
-                        {questions.map((question) => 
-                            <div></div>
-                        )}
+                        <div className="quiz-nav-btn"></div>
+                        <div className="quiz-nav-btn"></div>
+                        <div className="quiz-nav-btn"></div>
+                        <div className="quiz-nav-btn"></div>
                     </div>
                     <div className="quiz-finish">
                         <button onClick={handleFinish}>Finish</button>

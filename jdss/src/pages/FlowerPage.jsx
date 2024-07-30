@@ -22,7 +22,7 @@ function FlowerPage() {
                     </div>
                 </div>
                 <div className="row">
-                    <Plant/>
+                    <Plant withGod={withGod}/>
                 </div>
                 <div className="row">
                     <div className="col">

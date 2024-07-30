@@ -1,12 +1,35 @@
 import { useEffect } from "react";
 import Wellen from "./Wellen";
+import { useGod } from "../context/GodContext";
 
-function Plant() {
-
+function Plant({ withGod }) {
+    const winds = ["wind-1", "wind-2", "wind-3"];
+    const toggleSchwach = () => {
+        const schwachen = document.querySelectorAll(".schwach");
+        for (let i = 0; i < schwachen.length ; i++) {
+            if (schwachen[i].classList.contains("wind-1") ||
+                schwachen[i].classList.contains("wind-2") ||
+                schwachen[i].classList.contains("wind-3")) {
+                    schwachen[i].classList.remove("wind-1");
+                    schwachen[i].classList.remove("wind-2");
+                    schwachen[i].classList.remove("wind-3");
+                    schwachen[i].style.display = "none";
+                    schwachen[i].style.display = "block";
+                    
+                } else {
+                let rand = Math.floor(Math.random() * winds.length);
+                schwachen[i].classList.toggle(winds[rand]);
+            }
+            
+        }
+    }
+    useEffect(() => {
+        toggleSchwach()
+    }, [withGod]);
     return  (
         <>
         <div className="flower-container">
-            <Wellen />
+            <Wellen withGod={withGod}/>
             <div className="day-hintergrund"></div>
             <div className="blume blume--1 ">
                 <div className="blume__blatter">
@@ -270,7 +293,9 @@ function Plant() {
                     <div className="spriess spriess--3"></div>
                 </div>
             </div>
-            <div className="berge berge--1"></div>
+            <div className="berge berge--1">
+                <div className="berge__rissen"></div>
+            </div>
             <div className="berge berge--2"></div>
             <div className="berge berge--3"></div>
         </div>

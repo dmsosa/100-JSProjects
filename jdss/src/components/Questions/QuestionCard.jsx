@@ -82,12 +82,10 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
                 </div>
                 <div className={`advise ${question.answered && "show"}`}><p>{question.advise}</p></div>
                 { errorMessage.length > 1 && <div className="error-message"><p>{errorMessage}</p></div> }
-                <div className="options">
-                    <Options options={question.options} 
-                    selectedOptions={selectedOptions}
-                    handleSelectOption={handleCurrentOption} 
-                    />
-                </div>
+                <Options options={question.options} 
+                selectedOptions={selectedOptions}
+                handleSelectOption={handleCurrentOption} 
+                />
                 <QuestionButtons 
                 questionsSize={allQuestions.length} 
                 questionId={question.id}

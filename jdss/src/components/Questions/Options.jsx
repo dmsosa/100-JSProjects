@@ -25,7 +25,7 @@ function Options({ options, selectedOptions, handleSelectOption }) {
             className={`option-container noanswer option${optionIndex}`}
             key={optionIndex} 
             onClick={() => handleSelectOption(optionIndex)}>
-                <div className="letter"><a>{indexToLetter(optionIndex)}</a></div>
+                <div className="letter">{indexToLetter(optionIndex)}</div>
                 <p>{option}</p>
                 <div className="custom-checkbox">
                     <input type="checkbox" checked={selectedOptions.includes(optionIndex)} readOnly></input>

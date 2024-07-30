@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const GodContext = createContext({
     withGod: true,
@@ -10,6 +10,7 @@ export function useGod() {
 
 function GodProvider({children}) {
     const [ withGod, setWithGod ] = useState(true);
+
     return (
         <GodContext.Provider value={{withGod, setWithGod}}>
             {children}

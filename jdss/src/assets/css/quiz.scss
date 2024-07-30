@@ -1,4 +1,4 @@
-@keyframes entrys {
+@keyframes entry {
     from {
         transform: translateX(-1000px);
     } 
@@ -33,10 +33,11 @@
 }
 
 .score-div {
-    padding: 5rem 0;
+    height: 250px;
+    margin-top: 5rem;
+    padding: 0rem 0;
 }
 .score-div h1 {
-    font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 5rem;
@@ -63,43 +64,28 @@
 .score-div button {
     display: block;
     border: none;
-    outline: double salmon 1rem;
+    width: 300px;
+    height: 75px;
+    font-size: larger;
+    color: #fff;
+    background-color: #554da0;
+    box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
+    padding: 10px; 
     border-radius: 0.5rem;
     padding: 1rem 3rem;
     margin: 0rem auto;
     margin-top: 5rem;
-    background-color: lightcyan;
-    font-family: "Poetsen One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3rem;
-    box-shadow: 0px 0px 0rem 2rem lightcyan;    
     transition: all 0.4s;
-    animation: entrys 1s ease-in 0.2s 1;
-    animation-fill-mode: backwards;
-}
-.score-div button.newgame {
-    outline-color: salmon;
-    background-color: lightcyan;
-    box-shadow: 0px 0px 0rem 2rem lightcyan;       
-}
-.score-div button.tryagain {
-    color: lightcyan;
-    outline-color: lightcyan;
-    background-color: salmon;
-    box-shadow: 0px 0px 0rem 2rem salmon;    
 }
 
-.score-div button.newgame:hover {
+
+.score-div button:hover {
     transform: translateY(-15px);
     outline-style: solid;
-    color: rgb(248, 105, 89);
+    color: #1bcaa1;
+    font-weight: 700;
 }
-.score-div button.tryagain:hover {
-    transform: translateY(-15px);
-    outline-style: solid;
-    color: white;
-}
+
 .quiz-wrapper {
     max-width: 50rem;
     position: relative;
@@ -113,6 +99,8 @@
     overflow-x: auto;
     scroll-snap-type: mandatory;
     scroll-behavior: smooth;
+    width: 90%;
+    margin: 0 auto;
 }
 .quiz-container::-webkit-scrollbar {
     display: none;
@@ -121,11 +109,11 @@
     display: flex;
     position: absolute;
     left: 50%;
-    bottom: 9.5rem;
+    bottom: 5rem;
     column-gap: 1rem;
     transform: translateX(-50%);
 }
-.quiz-nav div {
+.quiz-nav-btn {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
@@ -135,8 +123,9 @@
 }
 
 .quiz-finish {
-    margin: 5rem auto;
+    margin: 1rem auto;
     text-align: center;
+    margin-bottom: 0;
 }
 .quiz-finish button {
     border: none;
@@ -170,7 +159,7 @@
 .question-card-container {
     margin: 0 auto;
     padding: 0;
-    min-width: 40rem;
+    width: 100%;
     flex: 1 0 100%;
     scroll-snap-align: start;
 }
@@ -201,9 +190,10 @@
 .question-card-header {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
-    background-color: lightseagreen;
+    background-color: #554da0;
+    box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
     color: white;
-    padding: 2rem;
+    padding: 0.5rem 2rem;
 }
 .question-card-header h1 {
     font-size: xx-large;
@@ -225,8 +215,8 @@
     transition: background-color 0.03s 0s ease-in, outline 0.15s 0s ease-in;
 }
 .question-card-container .btn:hover {
-    outline: rgb(8, 91, 87) solid 0.25rem;
-    background-color: rgba(7, 186, 177, 0.589);
+    outline: #2b274e solid 0.25rem;
+    background-color: rgba(62, 2, 53, 0.589);
     font-weight: 500;
 }
 .question-card-container .btn:active {
@@ -236,10 +226,6 @@
 }
 
 
-.options {
-    margin: 0 auto;
-    padding: 0;
-}
 .option-container:hover,  .answered .option-container:hover{
     cursor: pointer;
 }
@@ -253,65 +239,44 @@
 
 .option-container {
     border-radius: 0.5rem;
-    background-color: whitesmoke;
-    display: flex;
+    height: 2rem;
     padding: 1rem;
     margin: 0.25rem 0;
+    background-color: whitesmoke;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
     color: #222;
     transition: all 0.1s 0s, transform 0.2s 0s ease-in;
 }
 
 .answered .option-container {
-    border-radius: 0.5rem;
-    display: flex;
-    padding: 1rem;
-    margin: 0.25rem 0;
-    justify-content: space-between;
     color: #222;
-    font-weight: 500;
     opacity: 0.8;
-    
 }
 
 .option-container.correct {
-    border-radius: 0.5rem;
     background-color: rgb(77, 223, 89);
-    display: flex;
-    padding: 1rem;
-    margin: 0.25rem 0;
-    justify-content: space-between;
-    color: white;
-    font-weight: 500;
 
 }
 .option-container.wrong {
-    border-radius: 0.5rem;
     background-color: rgb(244, 82, 82);
-    display: flex;
-    padding: 1rem;
-    margin: 0.25rem 0;
-    justify-content: space-between;
-    color: lightgray;
-
 }
 
 .option-container p {
-    margin-left: 2rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .option-container > .letter {
-    max-height: 2rem;
     border-radius: 30%;
-    outline: rgb(255, 239, 157) solid 0.2rem;
-    padding: 0.15rem 0.5rem;
+    font-weight: 700;
+    color: darkslategray;
     margin-bottom: 0;
 }
-.option-container > .letter a {
-    margin: 0;
-    padding: 0;
-}
+
 .option-container > .custom-checkbox input {
     position: absolute;
     opacity: 0;
@@ -322,8 +287,9 @@
 .custom-checkbox {
     position: relative;
     margin-right: 1rem;
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
+
 }
 
 .checkmark {
@@ -332,17 +298,17 @@
     bottom: 0;
     right: 0;
     left: 0;
-    outline: lightblue solid 0.3rem;
+    outline: #554da0 solid 0.3rem;
     transition: background-color 0.07s 0s ease-in;
 }
 .checkmark:after {
     content: "";
     display: none;
     position: absolute;
-    left: 0.7rem;
-    top: 0.25rem;
+    left: 0.2rem;
+    top: 0rem;
     width: 10px;
-    height: 20px;
+    height: 15px;
     border: solid white;
     border-width: 0rem 0.3rem 0.3rem 0rem;
     transform: rotate(45deg);
@@ -351,10 +317,10 @@
     background-color: rgb(208, 241, 252);
 }
 .custom-checkbox:active .checkmark {
-    background-color: rgb(31, 196, 251);
+    background-color: turquoise;
 }
 .custom-checkbox input:checked ~ .checkmark {
-    background-color: rgb(31, 196, 251);
+    background-color: turquoise;
 }
 .custom-checkbox input:checked ~ .checkmark:after {
     display: block;
@@ -387,16 +353,19 @@
 
 .progress {
     position: relative;
-    background-color: rgb(255, 255, 255);
+    background-color: #e7e5fa;
     width: 60%;
     height: 2rem;
     margin: 0.5rem auto 2rem auto;
-    box-shadow: 4px 5px 0px lightseagreen;
+    box-shadow: 4px 5px 0px #554da0;
 }
-.bar {
+.progress span {
+    color: #222;
     font-weight: 700;
-    text-align: center;
-    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .timer {
@@ -404,7 +373,7 @@
     width: 100%;
     height: 0.5rem;
     margin: 0.5rem auto 2rem auto;
-    box-shadow: 4px 5px 0px lightseagreen;
+    box-shadow: 4px 5px 0px #2b274e;
 }
 .timer-bar {
     height: 0.5rem;
@@ -413,29 +382,27 @@
 }
 .quiz-buttons {
     display: flex;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     width: 100%;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }
-.quiz-buttons a {
+.quiz-buttons button {
     text-decoration: none;
     border: none;
-    outline: 0.3rem solid rgb(7, 162, 154);
-    background-color: lightseagreen;
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #554da0;
+    box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
+    color: #fff;
     font-weight: 700;
+    font-size: smaller;
     letter-spacing: 0.05rem;
     transition: all 0.2s;
 }
-.quiz-buttons a:hover {
-    background-color: rgb(75, 221, 214);
+.quiz-buttons button:hover {
     letter-spacing: 0.2rem;
 }
-.quiz-buttons a:active {
-    outline: 0.3rem solid rgb(184, 71, 59);
-    background-color: salmon;
+.quiz-buttons button:active {
+    background-color: #1bcaa1;
     color: white;
 }

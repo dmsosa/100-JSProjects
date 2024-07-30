@@ -15,7 +15,6 @@ function App() {
     const horizontalScroll = stickySection.querySelector(".hor-scroll");
     let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
     percentage = percentage < 0 ? 0 : percentage > 100 ? 100 : percentage;
-    console.log(percentage);
     horizontalScroll.style.transform = `translateX(-${percentage}vw)`;
   }
   useEffect(() => {

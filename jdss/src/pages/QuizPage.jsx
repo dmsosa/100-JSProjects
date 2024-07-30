@@ -7,7 +7,7 @@ function QuizPage() {
     
 
     return (
-        <div className="page vertical-page">
+        <div className="page vertical-page quiz-page">
             <Quiz />
         </div>
     )

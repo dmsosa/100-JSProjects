@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchWeather } from "../services/weather";
 import WeatherComponent from "../components/Weather/WeatherComponent";
 import Toaster from "../components/Toaster";
+import Message from "../components/Message";
 
 function MeditationPage() {
     const [ lat, setLat ] = useState([]);
@@ -21,7 +22,6 @@ function MeditationPage() {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(onPositionSuccess, onPositionError);
         if (lat.length < 1 || lon.length < 1 ) { return }
-        console.log(lat, lon)
 
         fetchWeather({lat, lon})
         .then((wd) => {
@@ -32,7 +32,7 @@ function MeditationPage() {
     }, [lat, lon]);
 
     return ( 
-        <div className="page container">
+        <div className="page meditation-page">
             <div className="wetter-wrapper">
                 { 
                 typeof weatherData != 'undefined' ? 
@@ -44,7 +44,17 @@ function MeditationPage() {
                 }
             </div>
             <div className="row">
-                <Toaster />
+            <div className="col">
+                <Message />
+            </div>
+            <div className="col">
+                <div className="row">
+                    <h2>Robio</h2>               
+                </div>
+                <div className="row">
+                    <Toaster />
+                </div>
+            </div>
             </div>
         </div>
 )

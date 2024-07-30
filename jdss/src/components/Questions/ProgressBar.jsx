@@ -36,7 +36,8 @@ function ProgressBar({ finalScore }) {
                     backgroundColor: backgroundColor,
                     width: `${currentProgress}%`
                 }}
-                >{currentProgress}% / 100s%</div>
+                ></div>
+                <span>{currentProgress}% / 100%</span>
             </div>
         </div>
     )

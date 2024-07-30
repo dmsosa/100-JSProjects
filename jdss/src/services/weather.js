@@ -11,7 +11,6 @@ export async function fetchWeather({lat, lon}) {
         .then((data) => {
             if (Object.entries(data).length) {
                 const weatherData = mapDataToWeatherInterface(data);
-                console.log(weatherData);
                 return weatherData;
             }
         });
