@@ -3,7 +3,7 @@ import Options from "./Options";
 import Timer from "./Timer";
 import QuestionButtons from "./QuestionButtons";
 
-function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuestions, setQuestions }) {
+function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuestions, setQuestions, setShowScore }) {
 
     const [ currentOption, setCurrentOption ] = useState(null);
     const [ selectedOptions, setSelectedOptions ] = useState([]);
@@ -22,14 +22,7 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
         })) 
     }
 
-    const handleWatchedQuestion = (nextQuestionId) => {
-        setQuestions( allQuestions.map((q) => {
-            if (q.id === nextQuestionId) {
-                q.watched = true;
-            }
-            return q;
-        })) 
-    }
+
     const checkCorrect = (selectedOption) => {
         const option = document.querySelector(`#question${question.id}  .option${selectedOption}`);
         if (question.correctOptions.includes(selectedOption)) {
@@ -41,6 +34,27 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
             option.classList.remove("noanswer");
             return false;
         }
+    }
+
+    const handleFinish = () => {
+        //check if all questions have been answered
+        for (let i = 0; i < allQuestions.length ; i ++) {
+            if (!allQuestions[i].answered) {
+                setErrorMessage("You need to answer all the questions first!");
+                return;
+            }
+        }
+        setErrorMessage(null);
+        setShowScore(true);
+    }
+
+    const handleWatchedQuestion = (nextQuestionId) => {
+        setQuestions( allQuestions.map((q) => {
+            if (q.id === nextQuestionId) {
+                q.watched = true;
+            }
+            return q;
+        })) 
     }
 
     useEffect(() => {
@@ -89,7 +103,8 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
                 <QuestionButtons 
                 questionsSize={allQuestions.length} 
                 questionId={question.id}
-                handleWatchedQuestion={handleWatchedQuestion}/>
+                handleWatchedQuestion={handleWatchedQuestion}
+                handleFinish={handleFinish}/>
             </div>        
     )
 };

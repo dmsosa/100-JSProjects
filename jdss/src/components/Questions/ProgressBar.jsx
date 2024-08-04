@@ -28,8 +28,8 @@ function ProgressBar({ finalScore }) {
     }
 
     return (
-        <div className="progress-bar">
-            <h1>Current score: {Math.round(finalScore)}</h1>
+        <div className="progress-wrap">
+            <p>Current score: {Math.round(finalScore)}</p>
             <div className="progress">
                 <div className="bar"
                 style={{

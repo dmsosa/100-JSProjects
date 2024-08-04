@@ -1,7 +1,5 @@
-function QuestionButtons({questionsSize, questionId, handleWatchedQuestion}) {
-    
-    const nextQuestion = questionId - 1 === questionsSize ? "#" : `#question${questionId+1}`;
-    const previousQuestion = questionId - 1 === 0 ? "#" : `#question${questionId-1}`;
+function QuestionButtons({questionsSize, questionId, handleWatchedQuestion, handleFinish}) {
+
 
     const scrollQuizContainer = (direction) => {
 
@@ -28,14 +26,18 @@ function QuestionButtons({questionsSize, questionId, handleWatchedQuestion}) {
             }}>
                 Previous
             </button>
-            <button onClick={() => {
-                scrollQuizContainer("forth")
-                if (questionId < questionsSize) {
-                    handleWatchedQuestion(questionId+1);
-                }
-            }}>
-                Next
-            </button>
+            { questionId === questionsSize ? 
+                <button onClick={handleFinish}>Finish</button> :
+                <button onClick={() => {
+                    scrollQuizContainer("forth")
+                    if (questionId < questionsSize) {
+                        handleWatchedQuestion(questionId+1);
+                    }
+                }}>
+                    Next
+                </button>
+            }
+            
         </div>
     )
 }

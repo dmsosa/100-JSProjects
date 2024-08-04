@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import DankePage from "./pages/DankePage";
+import TraumPage from "./pages/TraumPage";
 import FlowerPage from "./pages/FlowerPage";
 import MeditationPage from "./pages/MeditationPage";
 import QuizPage from "./pages/QuizPage";
+import PoemPage from "./pages/PoemPage";
 
 function App() {
   const showUp = () => {
@@ -41,7 +42,8 @@ function App() {
       <div className="sticky-section">
         <div className="sticky">
           <div className="hor-scroll">
-            <DankePage />
+            <TraumPage />
+            <PoemPage />
           </div>
         </div>
       </div>

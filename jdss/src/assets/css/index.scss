@@ -2,7 +2,9 @@
 @import url(./quiz.scss);
 @import url(./flower.scss);
 @import url(./waves.scss);
+@import url(./berge.scss);
 @import url(./wetter.scss);
+@import url(./slider.scss);
 html {
   font-size: 16px;
 }
@@ -11,7 +13,8 @@ body {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(255, 255, 255);
+  background-color: #333;
+  color: #eee;
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {
@@ -46,7 +49,6 @@ body {
   padding-top: 0;
   box-shadow: inset 30px 0 0 turquoise, 
   inset -25px 0 0 palevioletred;
-  border: red solid 1px;
 }
 .sticky-section {
   height: 200vh;
@@ -63,4 +65,68 @@ body {
   height: 100vh;
   will-change: transform;
   align-items: center;
+}
+
+.god-toggler-wrapper {
+  position: absolute;
+  p {
+    font-size: small;
+  }
+}
+
+.god-toggler {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 3px;
+  border: solid 2px #2229;
+  outline: #554da0 solid 3px;
+  background-color: #3338;
+  transition: all 0.4s;
+  &.active {
+    background-color: #9187e7;
+    outline: goldenrod solid 3px;
+  }
+}
+
+.god-toggler::after {
+  content: "";
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: whitesmoke;
+  transition: all 0.4s;
+}
+.god-toggler.active::after {
+  left: 55%;
+  background-color: #554da0;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in 1 forwards !important;
+}
+.fade-out {
+  animation: fadeOut 2s ease-in 1 forwards !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

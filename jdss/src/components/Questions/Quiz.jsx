@@ -9,7 +9,6 @@ function Quiz() {
     const [ showScore, setShowScore ] = useState(true);
     const [ finalScore, setFinalScore ] = useState(0);
     const [ attemps, setAttemps ] = useState(0);    
-    const [ errorMessage, setErrorMessage ] = useState(null);
     const pointsPerQuestion = 10000 / questions.length;
 
     const sumToScore = (points) => {
@@ -32,17 +31,6 @@ function Quiz() {
         setAttemps(attemps+1);
     }
 
-    const handleFinish = () => {
-        //check if all questions have been answered
-        for (let i = 0; i < questions.length ; i ++) {
-            if (!questions[i].answered) {
-                setErrorMessage("You need to answer all the questions first!");
-                return;
-            }
-        }
-        setErrorMessage(null);
-        setShowScore(true);
-    }
 
     return (
         showScore ? 
@@ -55,11 +43,11 @@ function Quiz() {
             </>
             :
             <>
-                { errorMessage && <div className="main-error-message"><p>{errorMessage}</p></div>}
                 <div className="quiz-wrapper">
                     <ProgressBar finalScore={finalScore}/>
                     <div className="quiz-container">
                         {questions.map((question, index) => 
+                        <>
                             <QuestionCard 
                             key={index}
                             question={question} 
@@ -67,17 +55,11 @@ function Quiz() {
                             sumToScore={sumToScore} 
                             pointsPerQuestion={pointsPerQuestion}
                             setQuestions={setQuestions} 
+                            setShowScore={setShowScore}
                             allQuestions={questions}/>
+
+                        </>
                         )}
-                    </div>
-                    <div className="quiz-nav">
-                        <div className="quiz-nav-btn"></div>
-                        <div className="quiz-nav-btn"></div>
-                        <div className="quiz-nav-btn"></div>
-                        <div className="quiz-nav-btn"></div>
-                    </div>
-                    <div className="quiz-finish">
-                        <button onClick={handleFinish}>Finish</button>
                     </div>
                 </div>
 

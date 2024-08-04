@@ -15,7 +15,7 @@ function FlowerPage() {
             <div className="container">
                 <div className="row">
                     <div className="col col-12">
-                        <h1>Today is Jdss's Day</h1>
+                        <h1>Today is Jdss's {`${withGod ? "Tag": "Nacht"}`}</h1>
                         <p>This is your very very happy birthday!</p>
                     </div>
                     <div className="col">

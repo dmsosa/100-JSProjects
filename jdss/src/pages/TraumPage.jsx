@@ -1,7 +1,7 @@
 import Slide from "../components/Slide";
 import ToDo from "../components/ToDo/ToDo";
 
-function DankePage() {
+function TraumPage() {
     return (
         <div className="page">
             <h1>You will keep growing, for sure...</h1>
@@ -12,4 +12,4 @@ function DankePage() {
     )
 }
 
-export default DankePage;
+export default TraumPage;

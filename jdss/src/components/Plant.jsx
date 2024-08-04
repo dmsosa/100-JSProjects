@@ -1,10 +1,36 @@
 import { useEffect } from "react";
 import Wellen from "./Wellen";
-import { useGod } from "../context/GodContext";
+import Berge from "./Berge";
 
 function Plant({ withGod }) {
-    const winds = ["wind-1", "wind-2", "wind-3"];
-    const toggleSchwach = () => {
+
+    const gottEin = () => {
+        wasserEin();
+        schwachAus();
+        verwelkteAus();
+        trockeneAus();
+        setTimeout(wusteAus, 3000);
+        setTimeout(wasserAus, 5000);
+    }
+
+    const gottAus = () => {
+        schwachEin();
+        verwelkteEin();
+        wellenEin();
+        setTimeout(trockeneEin, 3000);
+        setTimeout(wusteEin, 6000);
+        setTimeout(wellenAus, 8000);
+    }
+
+    const schwachEin = () => {
+        const winds = ["wind-1", "wind-2", "wind-3"];
+        const schwachen = document.querySelectorAll(".schwach");
+        for (let i = 0; i < schwachen.length ; i++) {
+                let rand = Math.floor(Math.random() * winds.length);
+                schwachen[i].classList.toggle(winds[rand]);
+        }
+    }
+    const schwachAus = () => {
         const schwachen = document.querySelectorAll(".schwach");
         for (let i = 0; i < schwachen.length ; i++) {
             if (schwachen[i].classList.contains("wind-1") ||
@@ -15,23 +41,122 @@ function Plant({ withGod }) {
                     schwachen[i].classList.remove("wind-3");
                     schwachen[i].style.display = "none";
                     schwachen[i].style.display = "block";
-                    
-                } else {
-                let rand = Math.floor(Math.random() * winds.length);
-                schwachen[i].classList.toggle(winds[rand]);
+                }
             }
-            
+    }
+
+    const verwelkteEin = () => {
+        const stengel = document.querySelectorAll(".blume__stengel");
+        const blume = document.querySelectorAll(".blume");
+        for (let i = 0; i < stengel.length ; i++) {
+            stengel[i].classList.toggle("verwelkte");
+            }  
+        for (let i = 0; i < blume.length ; i++) {
+                blume[i].classList.toggle("verwelkte");
+                blume[i].firstChild.classList.toggle("verwelkte");
         }
     }
+    const verwelkteAus = () => {
+        const stengel = document.querySelectorAll(".blume__stengel");
+        const blume = document.querySelectorAll(".blume");
+        for (let i = 0; i < stengel.length ; i++) {
+            if (stengel[i].classList.contains("verwelkte")) {
+                stengel[i].classList.remove("verwelkte");
+            } 
+        }
+        for (let i = 0; i < blume.length ; i++) {
+            if (blume[i].classList.contains("verwelkte") || blume[i].firstChild.classList.contains("verwelkte") ) {
+                blume[i].classList.remove("verwelkte");
+                blume[i].firstChild.classList.remove("verwelkte");
+            } 
+        }
+    }
+    const wellenEin = () => {
+        const wellenContainer = document.querySelector(".wellen-container");
+        if (wellenContainer.classList.contains("fade-out")) {
+            wellenContainer.classList.remove("fade-out");
+        }
+        wellenContainer.classList.add("fade-in");
+    }
+    const wellenAus = () => {
+        const wellenContainer = document.querySelector(".wellen-container");
+        wellenContainer.classList.remove("fade-in");
+        wellenContainer.classList.add("fade-out");
+    }
+    const wasserEin = () => {
+        const wasserContainer = document.querySelector(".wasser-container");
+        const wuste = document.querySelector(".wuste-wrapper");
+        if (wasserContainer.classList.contains("fade-out") ) {
+            wasserContainer.classList.remove("fade-out");
+        }
+        if ( wuste.computedStyleMap().get("opacity").value === 1 ) {
+            wasserContainer.classList.add("fade-in");
+        }
+
+
+    }
+    const wasserAus = () => {
+        const wasserContainer = document.querySelector(".wasser-container");
+        if (wasserContainer.computedStyleMap().get("opacity").value === 1) {
+            wasserContainer.classList.remove("fade-in");
+            wasserContainer.classList.add("fade-out");
+        }
+    }
+    const wusteEin = () => {
+        const wuste = document.querySelector(".wuste-wrapper");
+        if (wuste.classList.contains("fade-out")) {
+            wuste.classList.remove("fade-out");
+        }
+        wuste.classList.add("fade-in");
+    }
+    const wusteAus = () => {
+        const wuste = document.querySelector(".wuste-wrapper");
+        if (wuste.computedStyleMap().get("opacity").value === 1) {
+            wuste.classList.remove("fade-in");
+            wuste.classList.add("fade-out");
+        }
+    }
+    const trockeneEin = () => {
+        const berge = document.querySelectorAll(".berge");
+        for (let i = 0; i < berge.length ; i++) {
+            berge[i].classList.add("dry");     
+            berge[i].firstChild.style.display = "block"; 
+        }
+        const wellen = document.querySelectorAll(".welle");
+        for (let i = 0; i < wellen.length ; i++) {
+            wellen[i].classList.add("dry");     
+        }
+    }
+    const trockeneAus = () => {
+        const berge = document.querySelectorAll(".berge");
+        for (let i = 0; i < berge.length ; i++) {
+            if (berge[i].classList.contains("dry")) {
+                berge[i].classList.remove("dry");     
+                berge[i].firstChild.style.display = "none";   
+            }
+        }
+        const wellen = document.querySelectorAll(".welle");
+        for (let i = 0; i < wellen.length ; i++) {
+            if (wellen[i].classList.contains("dry")) {
+                wellen[i].classList.remove("dry");     
+            }
+        }
+    }
+
+    
     useEffect(() => {
-        toggleSchwach()
+        if (withGod) {
+            gottEin();
+        } else {
+            gottAus();
+        }
     }, [withGod]);
     return  (
         <>
         <div className="flower-container">
-            <Wellen withGod={withGod}/>
-            <div className="day-hintergrund"></div>
-            <div className="blume blume--1 ">
+            <Wellen />
+            <div className="hintergrund hintergrund__tag"></div>
+            <div className="blume blume--1">
                 <div className="blume__blatter">
                     <div className="blume__blatt blume__blatt--1"></div>
                     <div className="blume__blatt blume__blatt--2"></div>
@@ -41,6 +166,8 @@ function Plant({ withGod }) {
                     {/* licht */}
                 </div>
                 <div className="blume__stengel">
+                    <div className="blume__stengel__top"></div>
+                    <div className="blume__stengel__bottom"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--1"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--2"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--3"></div>
@@ -59,6 +186,8 @@ function Plant({ withGod }) {
                     {/* licht */}
                 </div>
                 <div className="blume__stengel schwach">
+                    <div className="blume__stengel__top"></div>
+                    <div className="blume__stengel__bottom"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--1"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--2"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--3"></div>
@@ -75,6 +204,8 @@ function Plant({ withGod }) {
                     {/* licht */}
                 </div>
                 <div className="blume__stengel schwach">
+                    <div className="blume__stengel__top"></div>
+                    <div className="blume__stengel__bottom"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--1"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--2"></div>
                     <div className="blume__stengel__blatt blume__stengel__blatt--3"></div>
@@ -293,11 +424,7 @@ function Plant({ withGod }) {
                     <div className="spriess spriess--3"></div>
                 </div>
             </div>
-            <div className="berge berge--1">
-                <div className="berge__rissen"></div>
-            </div>
-            <div className="berge berge--2"></div>
-            <div className="berge berge--3"></div>
+            <Berge/>
         </div>
         </>
         
