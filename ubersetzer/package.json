@@ -1,0 +1,20 @@
+{
+  "name": "ubersetzer",
+  "version": "1.0.0",
+  "description": "Ubersetzung fur verschiedene Texte",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "quoter": "./quoter.js",
+    "translate": "./translator.js"
+  },
+  "author": "dmsosa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "Math": "^0.0.1-security"
+  }
+}
