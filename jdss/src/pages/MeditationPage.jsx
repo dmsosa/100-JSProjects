@@ -3,6 +3,7 @@ import { fetchWeather } from "../services/weather";
 import WeatherComponent from "../components/Weather/WeatherComponent";
 import Toaster from "../components/Toaster";
 import Message from "../components/Message";
+import Robot from "../components/Robot";
 
 function MeditationPage() {
     const [ lat, setLat ] = useState([]);
@@ -49,7 +50,7 @@ function MeditationPage() {
             </div>
             <div className="col">
                 <div className="row">
-                    <h2>Robio</h2>               
+                    <Robot />              
                 </div>
                 <div className="row">
                     <Toaster />

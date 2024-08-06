@@ -9,7 +9,6 @@ const page = quoteList.pages[randInt];
 console.log(`Seite nummer ${page.number} ubergesetzt werden...\n`);
 
 
-var count = 0;
 for (let i = 0; i < page.results.length ; i++ ) {
     let result = page.results[i];
     console.log(result);

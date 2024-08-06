@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { existsSync, writeFile, appendFile, readFile } = require("fs");
+const { existsSync, writeFile, readFile } = require("fs");
 
 const randPage = Math.floor(Math.random() * 15)
 const url = `https://api.quotable.io/quotes?limit=150&page=${randPage}`;

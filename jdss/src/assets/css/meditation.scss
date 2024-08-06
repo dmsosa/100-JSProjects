@@ -1,0 +1,95 @@
+.meditation-message .message-content {
+    background-color: #222;
+    padding: 1rem 2rem;
+    border: rgba(64, 224, 208, 0.37) solid 0.5rem;
+}
+.meditation-message span {
+    border-bottom: palevioletvar(--pri-c) solid 0.25rem;
+}
+
+.meditation-page .col {
+    margin-top: 5rem;
+}
+
+.robot-wrapper {
+    --pri-c: #b44747;
+    --sec-c: #454545;
+    height: 300px;
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(255, 0, 0, 0.167);
+    position: relative;
+}
+.robot {
+    position: absolute;
+    z-index: 100;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 120px;
+    height: 150px;
+    background-color: #b44747;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
+}
+.robot-arm {
+    position: absolute;
+    z-index: -1;
+    top: 70px;
+    left: calc(50% - 85px);
+    width: 70px;
+    height: 90px;
+    border-top: solid 30px var(--pri-c);
+    border-left: solid 20px var(--pri-c);
+    border-top-left-radius: 100%;
+    &-right {
+        left: auto;
+        right: calc(50% - 85px);
+        transform: rotateY(180deg);
+    }
+}
+.robot-arm::after {
+    position: absolute;
+    content: "";
+    top: 105%;
+    left: -25px;
+    width: 35px;
+    height: 35px;
+    background-color: var(--sec-c);
+    border-radius: 100%;
+}
+
+.robot-leg {
+    position: absolute;
+    z-index: -1;
+    top: 80%;
+    left: 37%;
+    width: 20px;
+    height: 40px;
+    background-color: var(--pri-c);
+    &-right {
+        left: auto;
+        right: 37%;
+        transform: rotateY(180deg);
+    }
+}
+.robot-leg::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 35px;
+    top: -15px;
+    left: 0px;
+    background-color: var(--sec-c);
+    border-radius: 25px;
+    transform: rotate(-67deg);
+}
+.robot-leg::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    top: -20px;
+    left: -6px;
+    background-color: var(--pri-c);
+    transform: rotate(-69deg);
+}

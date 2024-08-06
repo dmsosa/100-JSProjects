@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import quotesJSON from "../assets/quotes.json";
+import { translate } from "../services/translate";
 function Message() {
 
     const [ quote, setQuote ] = useState();
@@ -24,24 +25,32 @@ function Message() {
         setAuthor(selectedQuote.author);
         setQuote(selectedQuote.text);
 
-            setInterval(() => {
-                randIndex = Math.floor(Math.random() * results.length);
+        translate({text: selectedQuote.text}).then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            setTranslatedMessage(data.translatedText)
+        })
+        .catch((error) => console.log(error));
 
-                var selectedQuote = JSON.parse(results[randIndex]);
-                setAuthor(selectedQuote.author);
-                setQuote(selectedQuote.text);
-            }, 180000)
+
+        setInterval(() => {
+            randIndex = Math.floor(Math.random() * results.length);
+
+            var selectedQuote = JSON.parse(results[randIndex]);
+            setAuthor(selectedQuote.author);
+            setQuote(selectedQuote.text);
+        }, 180000)
     }, [])
 
     return (
             <div className="meditation-message">
-                    <p className="message-content">
-                        {quote}
-                    </p>
-                    <p className="message-content translated">
-                        {translatedMessage}
-                    </p>
-                    <span>{author}</span>
+                <p className="message-content">
+                    {quote}
+                </p>
+                <p className="message-content translated">
+                    {translatedMessage}
+                </p>
+                <span>{author}</span>
             </div>
     )
 }
