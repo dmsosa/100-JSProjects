@@ -3,7 +3,7 @@ import Wellen from "./Wellen";
 import Berge from "./Berge";
 
 function Flower({ withGod }) {
-
+    
     const gottEin = () => {
         wasserEin();
         schwachAus();
@@ -11,6 +11,8 @@ function Flower({ withGod }) {
         trockeneAus();
         setTimeout(wusteAus, 3000);
         setTimeout(wasserAus, 5000);
+        setTimeout(lichtEin, 8000);
+
     }
 
     const gottAus = () => {
@@ -18,6 +20,7 @@ function Flower({ withGod }) {
         verwelkteEin();
         wellenEin();
         setTimeout(trockeneEin, 3000);
+        setTimeout(lichtAus, 3000);
         setTimeout(wusteEin, 6000);
         setTimeout(wellenAus, 8000);
     }
@@ -140,6 +143,20 @@ function Flower({ withGod }) {
             if (wellen[i].classList.contains("dry")) {
                 wellen[i].classList.remove("dry");     
             }
+        }
+    }
+
+    const lichtEin = () => {
+        const lichten = document.querySelectorAll(".blume__licht");
+        for (let i = 0 ; i < lichten.length ; i++ ) {
+            lichten[i].style.opacity = "1";
+        }
+    }   
+
+    const lichtAus = () => {
+        const lichten = document.querySelectorAll(".blume__licht");
+        for (let i = 0 ; i < lichten.length ; i++ ) {
+            lichten[i].style.opacity = "0";
         }
     }
 
